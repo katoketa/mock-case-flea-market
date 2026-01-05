@@ -11,7 +11,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="/" class="header__title">
+        <a href="/">
             <img src="{{ asset('images/COACHTECHヘッダーロゴ.png') }}" alt="COACHTECH">
         </a>
         @yield('nav')
