@@ -1,3 +1,4 @@
+<!-- メモ：cssはcommon.cssに記述 -->
 <form action="/" method="get" class="search-form">
     <!-- TODO：今開いているのがおすすめなのかマイリストなのかを保持するためにデータを送る必要がある(defaultはおすすめ) -->
     <input type="text" class="search-form__input" placeholder="なにをお探しですか？">
@@ -16,11 +17,9 @@
         @endauth
         @guest
         <li>
-            <form action="/login" method="post">
-                <button class="header-navigation__login">
-                    ログイン
-                </button>
-            </form>
+            <a href="/login" class="header-navigation__login">
+                ログイン
+            </a>
         </li>
         @endguest
         <li>

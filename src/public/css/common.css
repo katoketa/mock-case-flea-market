@@ -25,7 +25,7 @@
     width: 370px;
 }
 
-.header-navigation__login, .header-navigation__logout {
+.header-navigation__logout {
     background: transparent;
     color: white;
     font-size: 25px;
@@ -33,7 +33,7 @@
     cursor: pointer;
 }
 
-.header-navigation__mypage {
+.header-navigation__mypage, .header-navigation__login {
     color: white;
     font-size: 25px;
     text-decoration: none;
