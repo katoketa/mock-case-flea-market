@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('purchase_histories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('buyer_id')->constrained('users');
+            $table->foreignId('item_id')->constrained();
+            $table->string('send_address');
             $table->timestamps();
         });
     }
