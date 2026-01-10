@@ -21,7 +21,7 @@ class ItemSeeder extends Seeder
                 'price' => 15000,
                 'brand' => 'Rolax',
                 'description' => 'スタイリッシュなデザインのメンズ腕時計',
-                'image' => '',
+                'image' => 'images/腕時計.jpg',
             ],
             [
                 'seller_id' => 2,
@@ -30,16 +30,16 @@ class ItemSeeder extends Seeder
                 'price' => 5000,
                 'brand' => '西芝',
                 'description' => '高速で信頼性の高いハードディスク',
-                'image' => '',
+                'image' => 'images/HDD.jpg',
             ],
             [
                 'seller_id' => 3,
                 'condition_id' => 3,
-                'name' => '玉ねぎ',
+                'name' => '玉ねぎ3束',
                 'price' => 300,
                 'brand' => 'なし',
                 'description' => '新鮮な玉ねぎ3束のセット',
-                'image' => '',
+                'image' => 'images/玉ねぎ3束.jpg',
             ],
             [
                 'seller_id' => 4,
@@ -48,7 +48,7 @@ class ItemSeeder extends Seeder
                 'price' => 4000,
                 'brand' => '',
                 'description' => 'クラシックなデザインの革靴',
-                'image' => '',
+                'image' => 'images/革靴.jpg',
             ],
             [
                 'seller_id' => 5,
@@ -57,7 +57,7 @@ class ItemSeeder extends Seeder
                 'price' => 45000,
                 'brand' => '',
                 'description' => '高性能なノートパソコン',
-                'image' => '',
+                'image' => 'images/ノートPC.jpg',
             ],
             [
                 'seller_id' => 6,
@@ -66,7 +66,7 @@ class ItemSeeder extends Seeder
                 'price' => 8000,
                 'brand' => 'なし',
                 'description' => '高音質のレコーディング用マイク',
-                'image' => '',
+                'image' => 'images/マイク.jpg',
             ],
             [
                 'seller_id' => 7,
@@ -75,7 +75,7 @@ class ItemSeeder extends Seeder
                 'price' => 3500,
                 'brand' => '',
                 'description' => 'おしゃれなショルダーバッグ',
-                'image' => '',
+                'image' => 'images/ショルダーバッグ.jpg',
             ],
             [
                 'seller_id' => 8,
@@ -84,7 +84,7 @@ class ItemSeeder extends Seeder
                 'price' => 500,
                 'brand' => 'なし',
                 'description' => '使いやすいタンブラー',
-                'image' => '',
+                'image' => 'images/タンブラー.jpg',
             ],
             [
                 'seller_id' => 9,
@@ -93,7 +93,7 @@ class ItemSeeder extends Seeder
                 'price' => 4000,
                 'brand' => 'Starbacks',
                 'description' => '手動のコーヒーミル',
-                'image' => '',
+                'image' => 'images/コーヒーミル.jpg',
             ],
             [
                 'seller_id' => 10,
@@ -102,7 +102,7 @@ class ItemSeeder extends Seeder
                 'price' => 2500,
                 'brand' => '',
                 'description' => '便利なメイクアップセット',
-                'image' => '',
+                'image' => 'images/メイクセット.jpg',
             ],
         ];
         foreach ($params as $param) {
