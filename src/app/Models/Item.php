@@ -15,4 +15,35 @@ class Item extends Model
         'description',
         'image',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function condition()
+    {
+        return $this->belongsTo(Condition::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function purchase_history()
+    {
+        return $this->hasOne(PurchaseHistory::class);
+    }
+
 }

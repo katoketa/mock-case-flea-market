@@ -9,4 +9,9 @@ class Condition extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function items()
+    {
+        $this->hasMany(Item::class);
+    }
 }

@@ -11,4 +11,14 @@ class PurchaseHistory extends Model
         'item_id',
         'send_address',
     ];
+
+    public function user()
+    {
+        $this->belongsTo(User::class);
+    }
+
+    public function item()
+    {
+        $this->belongsTo(Item::class);
+    }
 }
