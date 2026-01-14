@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('buyer_id')->constrained('users');
             $table->foreignId('item_id')->constrained();
-            $table->string('send_address');
+            $table->string('postal_code');
+            $table->string('address');
+            $table->string('building');
             $table->timestamps();
         });
     }
