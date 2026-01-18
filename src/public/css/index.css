@@ -1,0 +1,70 @@
+.index-page {
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.index-page__header {
+    padding: 0 200px;
+    border-bottom: 1px solid #5f5f5f;
+}
+
+.page-tab {
+    padding: 10px 50px 0 0;
+    color: #5f5f5f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.page-tab__select {
+    color: red;
+}
+
+.index-page__exhibition {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1540px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.index-page__exhibition::before, .index-page__exhibition::after {
+    content: "";
+    width: 300px;
+}
+
+.index-page__exhibition::before {
+    order: 1;
+}
+
+.exhibition-card {
+    text-decoration: none;
+    margin-bottom: 50px;
+}
+
+.exhibition-card__image {
+    position: relative;
+    width: 300px;
+    background-color: black;
+}
+
+.exhibition-card__image-img {
+    width: 100%;
+}
+
+.image-img__sold {
+    opacity: 0.7;
+}
+
+.exhibition-card__image-sold {
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.exhibition-card__name {
+    margin: 0;
+    color: black;
+    font-size: 20px;
+}
