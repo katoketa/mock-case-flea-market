@@ -1,0 +1,56 @@
+.register-page {
+    width: 600px;
+    margin: 50px auto;
+}
+
+.register-page__header {
+    margin: 50px 0 0 50px;
+}
+
+.register-page__header-title {
+    text-align: center;
+}
+
+.register-form {
+    margin: 0 auto;
+}
+
+.register-form__label {
+    display: block;
+    margin-top: 30px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.register-form__label:first-child {
+    margin-top: 0;
+}
+
+.register-form__input {
+    width: 100%;
+    padding: 10px 30px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.register-form__button {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.register-form__button-submit {
+    width: 100%;
+    padding: 8px;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: #ff5555;
+}
+
+.register-page__transition-login {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+}
