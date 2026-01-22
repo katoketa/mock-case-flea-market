@@ -13,4 +13,9 @@ class ItemController extends Controller
         $items = Item::with('purchase_history')->get();
         return view('index', compact('items'));
     }
+
+    public function detail(Item $item)
+    {
+        return view('detail', ['item' => $item]);
+    }
 }
