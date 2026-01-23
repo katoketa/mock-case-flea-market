@@ -30,7 +30,33 @@
                 <p class="comment-count">{{ $item['comments']->count() }}</p>
             </div>
         </div>
-        <!-- ここから続き -->
+        <a href="/purchase/{{ $item['id'] }}" class="transition-purchase-page">購入手続きへ</a>
+        <div class="item-description">
+            <h3 class="item-description__title">商品説明</h3>
+            <div class="item-description__content">{{ $item['description'] }}</div>
+        </div>
+        <h3 class="item-data__header">商品の情報</h3>
+        <table class="item-data__table">
+            <tr>
+                <th class="item-data__table-header">カテゴリー</th>
+                <td class="item-data__table-categories">
+                    @foreach ($item['categories'] as $category)
+                    <span class="item-data__table-category">{{ $category['name'] }}</span>
+                    @endforeach
+                </td>
+            </tr>
+            <tr>
+                <th class="item-data__table-header">商品の状態</th>
+                <td class="item-data__table-condition">{{ $item['condition'] }}</td>
+            </tr>
+        </table>
+        <h3 class="comments-header">コメント({{ $item['comments']->count() }})</h3>
+        <div class="seller-profile">
+            <div class="seller-profile__image">
+                <!-- Todo:外部キーの名前変更を行う -->
+                <img src="{{ $item['seller']" alt="" class="seller-profile__image-img">
+            </div>
+        </div>
     </div>
 </div>
 @endsection
