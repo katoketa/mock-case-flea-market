@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function items()
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(Item::class, 'seller_id');
     }
 
     public function comments()
