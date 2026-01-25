@@ -51,12 +51,16 @@
             </tr>
         </table>
         <h3 class="comments-header">コメント({{ $item['comments']->count() }})</h3>
-        <div class="seller-profile">
-            <div class="seller-profile__image">
-                <!-- Todo:外部キーの名前変更を行う -->
-                <img src="{{ $item['seller']" alt="" class="seller-profile__image-img">
+        @foreach ($item['comments'] as $comment)
+        <div class="comment-user">
+            <div class="comment-user__image">
+                <img src="{{ $comment['user']['profile']['image'] }}" alt="" class="comment-user__image-img">
             </div>
+            <p class="comment-user__name">{{ $comment['user']['name'] }}</p>
         </div>
+        <p class="comment-content">{{ $comment['comment'] }}</p>
+        @endforeach
+        <!-- 続きはここから -->
     </div>
 </div>
 @endsection
