@@ -38,7 +38,7 @@ class Item extends Model
 
     public function favorites()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'favorites');
     }
 
     public function purchase_history()
