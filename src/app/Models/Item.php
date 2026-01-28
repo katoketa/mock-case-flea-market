@@ -16,7 +16,7 @@ class Item extends Model
         'image',
     ];
 
-    public function user()
+    public function seller()
     {
         return $this->belongsTo(User::class);
     }
@@ -28,7 +28,7 @@ class Item extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany(Category::class)->withTimestamps();
     }
 
     public function comments()
@@ -38,7 +38,7 @@ class Item extends Model
 
     public function favorites()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'favorites')->withTimestamps();
     }
 
     public function purchase_history()

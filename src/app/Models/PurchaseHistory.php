@@ -14,11 +14,11 @@ class PurchaseHistory extends Model
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function item()
     {
-        $this->belongsTo(Item::class);
+        return $this->belongsTo(Item::class);
     }
 }

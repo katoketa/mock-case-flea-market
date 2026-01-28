@@ -14,11 +14,11 @@ class Comment extends Model
 
     public function item()
     {
-        $this->belongsTo(Item::class);
+        return $this->belongsTo(Item::class);
     }
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }
