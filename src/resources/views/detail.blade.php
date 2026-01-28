@@ -64,13 +64,13 @@
         </div>
         <p class="comment-content">{{ $comment['comment'] }}</p>
         @endforeach
-        <div class="comment-form">
+        <form action="/item/{{ $item['id'] }}" method="post" class="comment-form">
             <h2 class="comment-form__header">商品へのコメント</h2>
             <textarea name="comment" id="" class="comment-form__textarea"></textarea>
             <div class="comment-form__button">
                 <button type="button" class="comment-form__button-submit">コメントを送信する</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 @endsection
