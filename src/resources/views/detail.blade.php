@@ -4,10 +4,14 @@
 <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
 @endsection
 
+@section('nav')
+@include('navigation')
+@endsection
+
 @section('content')
 <div class="detail-page">
     <div class="item-image">
-        <img src="{{ $item['image'] }}" alt="商品画像" class="item-image__img">
+        <img src="{{ asset($item['image']) }}" alt="商品画像" class="item-image__img">
     </div>
     <div class="item-detail">
         <h2 class="item-name">{{ $item['name'] }}</h2>
@@ -47,7 +51,7 @@
             </tr>
             <tr>
                 <th class="item-data__table-header">商品の状態</th>
-                <td class="item-data__table-condition">{{ $item['condition'] }}</td>
+                <td class="item-data__table-condition">{{ $item['condition']['name'] }}</td>
             </tr>
         </table>
         <h3 class="comments-header">コメント({{ $item['comments']->count() }})</h3>
@@ -60,7 +64,13 @@
         </div>
         <p class="comment-content">{{ $comment['comment'] }}</p>
         @endforeach
-        <!-- 続きはここから -->
+        <div class="comment-form">
+            <h2 class="comment-form__header">商品へのコメント</h2>
+            <textarea name="comment" id="" class="comment-form__textarea"></textarea>
+            <div class="comment-form__button">
+                <button type="button" class="comment-form__button-submit">コメントを送信する</button>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
