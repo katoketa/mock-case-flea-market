@@ -24,6 +24,10 @@
     </div>
     <div class="index-page__exhibition">
         @foreach ($items as $item)
+        <!-- Todo:出品ページ作成以降、挙動を要確認 -->
+        @if ($item['seller']['id'] === auth()->user()->id)
+        @continue
+        @endif
         @if (empty($item['purchase_history']))
         <a href="/item/{{ $item['id'] }}" class="exhibition-card">
             <div class="exhibition-card__image">
