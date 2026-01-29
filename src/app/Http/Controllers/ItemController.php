@@ -4,14 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Todo：自分が出品した商品は除外(ログインページ、新規会員登録ページ作成、認証ルーティング設定後に変更予定)
-        $items = Item::with('purchase_history')->get();
-        return view('index', compact('items'));
+        if (empty(Auth::user())) {
+            if ($request->tab === "mylist") {
+                $items = [];
+            } else {
+                $items = Item::with('purchase_history')->get();
+            }
+        }  else {
+            if ($request->tab === "mylist") {
+                $items = Auth::user()->favorites;
+                $items->load('purchase_history');
+            } else {
+                $items = Item::with('purchase_history')->get();
+            }
+        }
+        return view('index', ['items' => $items, 'tab' => $request->tab]);
     }
 
     public function detail(Item $item)
