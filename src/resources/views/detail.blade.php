@@ -65,6 +65,7 @@
         <p class="comment-content">{{ $comment['comment'] }}</p>
         @endforeach
         <form action="/item/{{ $item['id'] }}" method="post" class="comment-form">
+            @csrf
             <h2 class="comment-form__header">商品へのコメント</h2>
             <textarea name="comment" id="" class="comment-form__textarea"></textarea>
             <div class="comment-form__button">
