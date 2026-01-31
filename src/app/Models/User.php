@@ -68,6 +68,6 @@ class User extends Authenticatable
 
     public function purchase_histories()
     {
-        return $this->hasMany(PurchaseHistory::class);
+        return $this->hasMany(PurchaseHistory::class, 'buyer_id');
     }
 }
