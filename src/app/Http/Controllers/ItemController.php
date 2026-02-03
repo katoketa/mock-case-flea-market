@@ -12,6 +12,7 @@ class ItemController extends Controller
 {
     public function index(Request $request)
     {
+        // TODO：自分が出品した商品は除外するようにする（認証時、おすすめ表示)
         if (empty(Auth::user())) {
             if ($request->tab === "mylist") {
                 $items = [];

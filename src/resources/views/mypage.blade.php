@@ -33,7 +33,7 @@
                 <p class="mypage-items__header mypage-items__header-select">購入した商品</p>
                 @endif
         </div>
-        @include('item_list', ['showSoldState' => false]);
+        @include('items_exhibition', ['showSoldState' => false])
     </div>
 </div>
 @endsection
