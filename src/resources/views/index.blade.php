@@ -2,6 +2,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+<link rel="stylesheet" href="{{ asset('css/items-exhibition.css') }}">
 @endsection
 
 @section('nav')
@@ -23,4 +24,4 @@
         @endif
     </div>
     @include('items_exhibition', ['showSoldState' => true])
-    @endsection
+@endsection
