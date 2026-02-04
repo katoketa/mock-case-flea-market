@@ -1,4 +1,4 @@
-<div class="item-exhibition">
+<div class="items-exhibition">
     @foreach ($items as $item)
     <a href="/item/{{ $item['id'] }}" class="exhibition-card">
         <div class="exhibition-card__image">
