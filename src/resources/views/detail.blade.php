@@ -58,7 +58,7 @@
         @foreach ($item['comments'] as $comment)
         <div class="comment-user">
             <div class="comment-user__image">
-                <img src="{{ $comment['user']['profile']['image'] }}" alt="" class="comment-user__image-img">
+                <img src="{{ asset($comment['user']['profile']['image']) }}" alt="" class="comment-user__image-img">
             </div>
             <p class="comment-user__name">{{ $comment['user']['name'] }}</p>
         </div>
