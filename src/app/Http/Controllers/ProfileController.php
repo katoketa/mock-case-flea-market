@@ -11,10 +11,11 @@ class ProfileController extends Controller
     function mypage(Request $request)
     {
         $user = Auth::user();
-        if (empty($request->page) || $request->page === "sell") {
+        $page = $request->page;
+        if (empty($page) || $page === "sell") {
             $items = $user->items;
             $items->load('purchase_history');
-        } elseif ($request->page === "buy") {
+        } elseif ($page === "buy") {
             $purchase_histories = $user->purchase_histories;
             $purchase_histories->load('item');
             $items = [];
@@ -22,6 +23,6 @@ class ProfileController extends Controller
                 $items[] = $purchase_history['item'];
             }
         }
-        return view('mypage', compact('user', 'items'));
+        return view('mypage', compact('user', 'items', 'page'));
     }
 }
