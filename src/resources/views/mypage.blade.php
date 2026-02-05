@@ -15,7 +15,7 @@
         <div class="mypage-header__user-profile">
             <div class="mypage-header__image">
                 @if (!empty($user['profile']))
-                <img src="{{ $user['profile']['image'] }}" alt="" class="mypage-header__image-img">
+                <img src="{{ asset($user['profile']['image']) }}" alt="" class="mypage-header__image-img">
                 @endif
             </div>
             <p class="mypage-header__user-name">{{ $user['name'] }}</p>
