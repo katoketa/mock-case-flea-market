@@ -25,4 +25,10 @@ class ProfileController extends Controller
         }
         return view('mypage', compact('user', 'items', 'page'));
     }
+
+    public function edit()
+    {
+        $user = Auth::user();
+        return view('edit_profile', compact('user'));
+    }
 }
