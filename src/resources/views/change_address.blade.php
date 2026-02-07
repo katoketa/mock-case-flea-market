@@ -6,7 +6,7 @@
 
 @section('nav')
 @include('navigation')
-@endsecrion
+@endsection
 
 @section('content')
 <div class="change-address">
