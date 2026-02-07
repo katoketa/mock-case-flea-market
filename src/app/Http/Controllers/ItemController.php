@@ -48,4 +48,9 @@ class ItemController extends Controller
         $profile = $user['profile'];
         return view('purchase', compact('item', 'profile'));
     }
+
+    public function changeAddress(Item $item)
+    {
+        return view('change_address', compact('item'));
+    }
 }
