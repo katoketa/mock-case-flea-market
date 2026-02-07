@@ -16,7 +16,7 @@
     <div class="item-detail">
         <h2 class="item-name">{{ $item['name'] }}</h2>
         <p class="item-brand">{{ $item['brand'] }}</p>
-        <p class="item-price">¥<span id="item-price" class="item-price__value">{{ $item['price'] }}</span>(税込)</p>
+        <p class="item-price">¥<span class="item-price__value">{{ $item['price'] }}</span>(税込)</p>
         <div class="item-utilities">
             <div class="utilities-favorite">
                 <!-- Todo:いいねボタンを押せるように変更する -->
@@ -34,7 +34,7 @@
                 <p class="comment-count">{{ $item['comments']->count() }}</p>
             </div>
         </div>
-        <a href="/purchase/{{ $item['id'] }}" class="transition__purchase-page">購入手続きへ</a>
+        <a href="/purchase/{{ $item['id'] }}" class="transition-purchase-page">購入手続きへ</a>
         <div class="item-description">
             <h3 class="item-description__title">商品説明</h3>
             <div class="item-description__content">{{ $item['description'] }}</div>
@@ -66,16 +66,12 @@
         @endforeach
         <form action="/item/{{ $item['id'] }}" method="post" class="comment-form">
             @csrf
-            <h3 class="comment-form__header">商品へのコメント</h3>
+            <h2 class="comment-form__header">商品へのコメント</h2>
             <textarea name="comment" id="" class="comment-form__textarea"></textarea>
-            <button type="button" class="comment-form__button-submit">コメントを送信する</button>
+            <div class="comment-form__button">
+                <button type="button" class="comment-form__button-submit">コメントを送信する</button>
+            </div>
         </form>
     </div>
 </div>
-@endsection
-
-@section('script')
-<script>
-    document.getElementById('item-price').innerText = $item['price'].toLocaleString("ja-JP");
-</script>
 @endsection
