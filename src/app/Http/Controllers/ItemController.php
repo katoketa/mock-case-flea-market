@@ -41,4 +41,11 @@ class ItemController extends Controller
         $conditions = Condition::all();
         return view('sell', compact('categories', 'conditions'));
     }
+
+    public function purchase(Item $item)
+    {
+        $user = Auth::user();
+        $profile = $user['profile'];
+        return view('purchase', compact('item', 'profile'));
+    }
 }
