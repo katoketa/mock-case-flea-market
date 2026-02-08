@@ -13,6 +13,9 @@
     <h2 class="edit-profile__header">プロフィール</h2>
     <form action="/mypage/profile" method="post" class="edit-form" novalidate>
         @csrf
+        @if(!empty($user['profile']))
+        <input type="hidden" name="id" value="{{ $user['profile']['id'] }}">
+        @endif
         <div class="edit-profile__image">
             <div class="show-image">
                 @if (!empty($user['profile']))
@@ -24,7 +27,7 @@
         <label for="name" class="edit-profile__header">ユーザー名</label>
         <input type="text" name="name" id="name" class="edit-profile__input" @if (!empty($user['profile'])) value="{{ $user['name'] }}" @endif>
         <label for="postal-code" class="edit-profile__header">郵便番号</label>
-        <input type="text" name="postal-code" id="postal-code" class="edit-profile__input" @if (!empty($user['profile'])) value="{{ $user['profile']['postal-code'] }}" @endif>
+        <input type="text" name="postal_code" id="postal_code" class="edit-profile__input" @if (!empty($user['profile'])) value="{{ $user['profile']['postal_code'] }}" @endif>
         <label for="address" class="edit-profile__header">住所</label>
         <input type="text" name="address" id="address" class="edit-profile__input" @if (!empty($user['profile'])) value="{{ $user['profile']['address'] }}" @endif>
         <label for="building" class="edit-profile__header">建物名</label>
