@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Profile;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -30,5 +32,19 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         return view('edit_profile', compact('user'));
+    }
+
+    public function update(Request $request)
+    {
+        $user = Auth::user();
+        User::find($user->id)->update(['name' => $request->name]);
+        $profile = $request->only(['image', 'postal_code', 'address', 'building']);
+        $profile['user_id'] = $user['id'];
+        if (empty($request->id)) {
+            Profile::create($profile);
+        } else {
+            Profile::find($request->id)->update($profile);
+        }
+        return redirect('/');
     }
 }
