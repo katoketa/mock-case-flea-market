@@ -1,6 +1,6 @@
 .sell-page {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto 100px;
 }
 
 .sell-page__header-title {
@@ -76,13 +76,19 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-left: 20px;
     margin-bottom: 35px;
+}
+
+.detail-categories::before {
+    content: "";
+    width: 30%;
+    height: 0;
+    order: 1;
 }
 
 .detail-categories::after {
     content: "";
-    width: 60%;
+    width: 30%;
     height: 0;
 }
 
@@ -91,7 +97,8 @@
 }
 
 .detail-category__label {
-    margin: 0 15px 20px 0;
+    display: block;
+    margin: 0 0 20px 15px;
     padding: 5px 15px;
     color: #ff5755;
     font-size: 12px;
@@ -105,7 +112,7 @@
 }
 
 .detail-condition {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 .detail-condition__header {
@@ -133,5 +140,61 @@
     width: 100%;
     padding: 5px;
     font-size: 15px;
+    border-radius: 3px;
     appearance: none;
+}
+
+.detail-condition__option {
+
+}
+
+.sell-form__item {
+
+}
+
+.item__header {
+    display: block;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.item__input, .item__textarea {
+    width: 100%;
+    padding: 5px;
+    font-size: 15px;
+}
+
+.item__textarea {
+    height: 100px;
+    resize: none;
+}
+
+.item__price {
+    position: relative;
+}
+
+.item__price::before {
+    content: "\¥";
+    position: absolute;
+    top: 4px;
+    left: 7px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.item__input--price {
+    padding-left: 20px;
+}
+
+.sell-form__button-submit {
+    width: 100%;
+    margin-top: 100px;
+    padding: 8px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    background: #ff5755;
 }

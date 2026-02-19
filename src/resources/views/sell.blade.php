@@ -48,18 +48,18 @@
         </div>
         <div class="sell-form__item">
             <h3 class="sell-form__content-header">商品名と説明</h3>
-            <label class="item-name__header">商品名</label>
-            <input type="text" name="name" class="item-name__input">
-            <label class="item-brand__header">ブランド名</label>
-            <input type="text" name="brand" id="" class="item-brand__input">
-            <label class="item-description__header">商品の説明</label>
-            <textarea name="description" id="" class="item-description__textarea"></textarea>
-            <label class="item-price__header">販売価格</label>
-            <input type="number" name="price" id="">
+            <label class="item__header">商品名</label>
+            <input type="text" name="name" class="item__input">
+            <label class="item__header">ブランド名</label>
+            <input type="text" name="brand" id="" class="item__input">
+            <label class="item__header">商品の説明</label>
+            <textarea name="description" id="" class="item__textarea"></textarea>
+            <label class="item__header">販売価格</label>
+            <div class="item__price">
+                <input type="number" name="price" id="" class="item__input item__input--price">
+            </div>
         </div>
-        <div class="sell-form__button">
-            <button type="submit" class="sell-form__button-submit">出品する</button>
-        </div>
+        <button type="submit" class="sell-form__button-submit">出品する</button>
     </form>
 </div>
 @endsection
