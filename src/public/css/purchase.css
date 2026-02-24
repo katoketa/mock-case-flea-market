@@ -1,0 +1,145 @@
+.purchase {
+    margin: 100px auto;
+}
+
+.purchase-form {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.purchase-form__left {
+    width: 700px;
+}
+
+.purchase-form__header {
+    display: flex;
+    padding-bottom: 50px;
+    border-bottom: 1px solid black;
+}
+
+.purchase-form__image {
+    width: 150px;
+}
+
+.purchase-form__image-img {
+    width: 100%;
+}
+
+.purchase-form__item {
+    margin-left: 50px;
+}
+
+.purchase-form__item-name {
+    margin: 0;
+    font-size: 30px;
+}
+
+.purchase-form__item-price {
+    margin: 10px 0 0;
+    font-size: 25px;
+}
+
+.purchase-form__content {
+    padding: 20px 0 50px;
+    border-bottom: 1px solid black;
+}
+
+.purchase-form__content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px 30px;
+}
+
+.payment-method__header, .delivery-address__header-title {
+    margin: 0;
+}
+
+.purchase-form__content-item {
+    margin-left: 80px;
+    font-size: 15px;
+}
+
+.payment-method__select-wrapper {
+    position: relative;
+    width: 250px;
+}
+
+.payment-method__select-wrapper::after {
+    position: absolute;
+    content: "";
+    top: 9px;
+    right: 7px;
+    border-top: 10px solid #5f5f5f;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 0;
+}
+
+.payment-method__select {
+    width: 100%;
+    padding: 5px 3px;
+    border-radius: 3px;
+    appearance: none;
+}
+
+.payment-method__option {
+
+}
+
+.delivery-address__change {
+    color: #197cd0;
+    text-decoration: none;
+}
+
+.delivery-address__address-building {
+    display: flex;
+}
+
+.delivery-address__postal-code, .delivery-address__address, .delivery-address__building {
+    margin: 0;
+    font-weight: bold;
+}
+
+.delivery-address__building {
+    margin-left: 10px;
+}
+
+.purchase-form__right {
+
+}
+
+.payment-info {
+    margin-bottom: 50px;
+    border: 1px solid black;
+}
+
+.payment-info__tr:not(:last-child) {
+    border-bottom: 1px solid black;
+}
+
+.payment-info__header {
+    padding: 30px;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.payment-info__item {
+    padding: 30px;
+    font-size: 20px;
+}
+
+.purchase-form__button {
+
+}
+
+.purchase-form__button-submit {
+    width: 100%;
+    padding: 7px 0;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    background-color: #ff5555;
+}
