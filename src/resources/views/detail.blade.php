@@ -76,6 +76,7 @@
 
 @section('script')
 <script>
-    document.getElementById('item-price').innerText = $item['price'].toLocaleString("ja-JP");
+    const price = @json($item['price']);
+    document.getElementById('item-price').innerText = price.toLocaleString("ja-JP");
 </script>
 @endsection
