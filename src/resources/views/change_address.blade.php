@@ -9,18 +9,18 @@
 @endsection
 
 @section('content')
-<div class="change-address">
-    <h2 class="change-address__header">住所の変更</h2>
-    <form action="/purchase/{{ $item['id'] }}" method="post" class="change-address-form">
+<div class="change-address-page">
+    <h2 class="page-header">住所の変更</h2>
+    <form action="/purchase/{{ $item['id'] }}" method="post" class="page-form">
         @csrf
-        <label for="postal-code" class="change-address-form__label">郵便番号</label>
-        <input type="text" name="postal-code" id="postal-code" class="change-address-form__input">
-        <label for="address" class="change-address-form__label">住所</label>
-        <input type="text" name="address" id="address" class="change-address-form__input">
-        <label for="building" class="change-address-form__label">建物名</label>
-        <input type="text" name="building" id="building" class="change-address-form__input">
-        <div class="change-address-form__button">
-            <button class="change-address-form__button-submit">更新する</button>
+        <label for="postal-code" class="page-form__label">郵便番号</label>
+        <input type="text" name="postal-code" id="postal-code" class="page-form__input">
+        <label for="address" class="page-form__label">住所</label>
+        <input type="text" name="address" id="address" class="page-form__input">
+        <label for="building" class="page-form__label">建物名</label>
+        <input type="text" name="building" id="building" class="page-form__input">
+        <div class="page-form__button">
+            <button class="page-form__button-submit">更新する</button>
         </div>
     </form>
 </div>
