@@ -1,0 +1,46 @@
+.change-address-page {
+    width: 600px;
+    margin: 30px auto;
+}
+
+.page-header {
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.page-form {
+    
+}
+
+.page-form__label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.page-form__input {
+    display: block;
+    width: 100%;
+    margin-bottom: 70px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.page-form__input:last-of-type {
+    margin-bottom: 100px;
+}
+
+.page-form__button {
+
+}
+
+.page-form__button-submit {
+    width: 100%;
+    padding: 7px 0;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    background: #ff5555;
+    border: none;
+    border-radius: 3px;
+}
