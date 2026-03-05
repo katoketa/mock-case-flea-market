@@ -39,6 +39,10 @@
     font-size: 25px;
 }
 
+.purchase-form__item-price-inner {
+    font-size: 30px;
+}
+
 .purchase-form__content {
     padding: 20px 0 50px;
     border-bottom: 1px solid black;
@@ -127,6 +131,15 @@
 .payment-info__item {
     padding: 30px;
     font-size: 20px;
+    text-align: center;
+}
+
+.payment-info__item-price {
+    font-size: 25px;
+}
+
+.payment-info__item-inner {
+    display: none;
 }
 
 .purchase-form__button {
@@ -142,4 +155,8 @@
     border: none;
     border-radius: 3px;
     background-color: #ff5555;
+}
+
+.is-active {
+    display: revert;
 }

@@ -18,7 +18,9 @@
                 </div>
                 <div class="purchase-form__item">
                     <h2 class="purchase-form__item-name">{{ $item['name'] }}</h2>
-                    <p class="purchase-form__item-price">¥  {{ $item['price'] }}</p>
+                    <p class="purchase-form__item-price">
+                        ¥ <span id="purchase-form__item-price" class="purchase-form__item-price-inner">{{ $item['price'] }}</span>
+                    </p>
                 </div>
             </div>
             <div class="purchase-form__content">
@@ -27,7 +29,7 @@
                 </div>
                 <div class="purchase-form__content-item">
                     <div class="payment-method__select-wrapper">
-                        <select name="payment_method" id="" class="payment-method__select">
+                        <select name="payment_method" id="select-toggle" class="payment-method__select">
                             <option value="" selected hidden>選択してください</option>
                             <option value="payment_convenience" class="payment-method__option">コンビニ払い</option>
                             <option value="payment_card" class="payment-method__option">カード払い</option>
@@ -61,11 +63,17 @@
             <table class="payment-info">
                 <tr class="payment-info__tr">
                     <th class="payment-info__header">商品代金</th>
-                    <td class="payment-info__item">¥ {{ $item['price'] }}</td>
+                    <td class="payment-info__item">
+                        ¥ <span id="payment-info__item-price" class="payment-info__item-price">{{ $item['price'] }}</span>
+                </td>
                 </tr>
                 <tr class="payment-info__tr">
                     <th class="payment-info__header">支払い方法</th>
-                    <td class="payment-info__item">javascript</td>
+                    <td class="payment-info__item">
+                        <div class="payment-info__item-inner is-active">未選択</div>
+                        <div id="payment_convenience" class="payment-info__item-inner">コンビニ払い</div>
+                        <div id="payment_card" class="payment-info__item-inner">カード払い</div>
+                    </td>
                 </tr>
             </table>
             <div class="purchase-form__button">
@@ -74,4 +82,23 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    const price = @json($item['price']);
+    document.getElementById('purchase-form__item-price').innerText = price.toLocaleString("ja-JP");
+    document.getElementById('payment-info__item-price').innerText = price.toLocaleString("ja-JP");
+
+    const selectToggle = document.getElementById('select-toggle');
+    if (selectToggle) {
+        selectToggle.value = "";
+        selectToggle.addEventListener('change', () => {
+            document.querySelectorAll('.payment-info__item-inner').forEach(selectPayment => {
+                selectPayment.classList.toggle('is-active', selectToggle.value === selectPayment.id);
+            })
+        })
+    }
+
+</script>
 @endsection
