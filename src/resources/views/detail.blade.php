@@ -78,7 +78,9 @@
         @endforeach
         <form action="/item/{{ $item['id'] }}" method="post" class="comment-form">
             @csrf
+            @auth
             <input type="hidden" name="user_id" value="{{ $user['id'] }}">
+            @endauth
             <input type="hidden" name="item_id" value="{{ $item['id'] }}">
             <h3 class="comment-form__header">商品へのコメント</h3>
             <textarea name="comment" id="" class="comment-form__textarea"></textarea>

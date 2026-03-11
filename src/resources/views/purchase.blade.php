@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="purchase">
-    <div class="purchase-form">
+    <form action="/purchase/{{ $item['id'] }}" method="post" class="purchase-form">
         <div class="purchase-form__left">
             <div class="purchase-form__header">
                 <div class="purchase-form__image">
@@ -44,16 +44,20 @@
                 </div>
                 <div class="purchase-form__content-item">
                     @if (empty($destinationAddress))
-                    <p class="delivery-address__postal-code">〒 {{ $profile['postal_code'] }}</p>
+                    <p class="delivery-address__postal-code-wrapper">
+                        〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $profile['postal_code'] }}" readonly>
+                    </p>
                     <div class="delivery-address__address-building">
-                        <p class="delivery-address__address">{{ $profile['address'] }}</p>
-                        <p class="delivery-address__building">{{ $profile['building'] }}</p>
+                        <input type="text" name="address" class="delivery-address__address" value="{{ $profile['address'] }}" readonly>
+                        <input type="text" name="building" class="delivery-address__building" value="{{ $profile['building'] }}" readonly>
                     </div>
                     @else
-                    <p class="delivery-address__postal-code">{{ $destinationAddress['postal_code'] }}</p>
+                    <p class="delivery-address__postal-code">
+                        〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $destinationAddress['postal_code'] }}" readonly>
+                    </p>
                     <div class="delivery-address__address-building">
-                        <p class="delivery-address__address">{{ $destinationAddress['address'] }}</p>
-                        <p class="delivery-address__building">{{ $destinationAddress['building'] }}</p>
+                        <input type="text" name="address" class="delivery-address__address" value="{{ $destinationAddress['address'] }}" readonly>
+                        <input type="text" name="building" class="delivery-address__building" value="{{ $destinationAddress['building'] }}" readonly>
                     </div>
                     @endif
                 </div>
@@ -65,7 +69,7 @@
                     <th class="payment-info__header">商品代金</th>
                     <td class="payment-info__item">
                         ¥ <span id="payment-info__item-price" class="payment-info__item-price">{{ $item['price'] }}</span>
-                </td>
+                    </td>
                 </tr>
                 <tr class="payment-info__tr">
                     <th class="payment-info__header">支払い方法</th>
@@ -80,7 +84,7 @@
                 <button type="submit" class="purchase-form__button-submit">購入する</button>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 @endsection
 
@@ -99,6 +103,5 @@
             })
         })
     }
-
 </script>
 @endsection

@@ -51,7 +51,7 @@ class ItemController extends Controller
         return redirect('item/' . $item['id']);
     }
     
-    public function deleteFavorite(Item $item)
+    public function destroyFavorite(Item $item)
     {
         $user = Auth::user();
         if (!$user) {
@@ -70,13 +70,20 @@ class ItemController extends Controller
 
     public function purchase(Item $item)
     {
-        $user = Auth::user();
-        $profile = $user['profile'];
+        $profile = Auth::user()->profile;
         return view('purchase', compact('item', 'profile'));
     }
 
-    public function changeAddress(Item $item)
+    public function editAddress(Item $item)
     {
         return view('change_address', compact('item'));
     }
+
+    public function updateAddress(Request $request, Item $item)
+    {
+        $profile = Auth::user()->profile;
+        $destinationAddress = $request->only('postal_code', 'address', 'building');
+        return view('purchase', compact('item', 'profile', 'destinationAddress'));
+    }
+    
 }
