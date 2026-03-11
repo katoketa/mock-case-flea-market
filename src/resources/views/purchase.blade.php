@@ -31,8 +31,8 @@
                     <div class="payment-method__select-wrapper">
                         <select name="payment_method" id="select-toggle" class="payment-method__select">
                             <option value="" selected hidden>選択してください</option>
-                            <option value="payment_convenience" class="payment-method__option">コンビニ払い</option>
-                            <option value="payment_card" class="payment-method__option">カード払い</option>
+                            <option value="payment_convenience" class="payment-method__option">コンビニ支払い</option>
+                            <option value="payment_card" class="payment-method__option">カード支払い</option>
                         </select>
                     </div>
                 </div>
@@ -75,8 +75,8 @@
                     <th class="payment-info__header">支払い方法</th>
                     <td class="payment-info__item">
                         <div class="payment-info__item-inner is-active">未選択</div>
-                        <div id="payment_convenience" class="payment-info__item-inner">コンビニ払い</div>
-                        <div id="payment_card" class="payment-info__item-inner">カード払い</div>
+                        <div id="payment_convenience" class="payment-info__item-inner">コンビニ支払い</div>
+                        <div id="payment_card" class="payment-info__item-inner">カード支払い</div>
                     </td>
                 </tr>
             </table>
