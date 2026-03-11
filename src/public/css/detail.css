@@ -48,8 +48,21 @@
     margin-right: 40px;
 }
 
-.favorite-icon, .comment-icon {
+.favorite-icon {
     width: 30px;
+    display: none;
+}
+
+.favorite-icon__button-submit {
+    width: 100%;
+    padding: 0;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.is-active__block {
+    display: block;
 }
 
 .comment-icon {

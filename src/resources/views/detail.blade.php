@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+
 <div class="detail-page">
     <div class="item-image">
         <img src="{{ asset($item['image']) }}" alt="商品画像" class="item-image__img">
@@ -19,15 +20,26 @@
         <p class="item-price">¥<span id="item-price" class="item-price__value">{{ $item['price'] }}</span>(税込)</p>
         <div class="item-utilities">
             <div class="utilities-favorite">
-                <!-- Todo:いいねボタンを押せるように変更する -->
-                <div class="favorite-icon">
-                    <!-- Todo:すでにいいねしている商品ならハートロゴをピンクにする -->
+                <form action="/item/{{ $item['id'] }}" method="post" class="favorite-icon" id="favorite-icon__login">
+                    @csrf
+                    @method('PATCH')
+                    <button type="submit" class="favorite-icon__button-submit">
+                        <img src="{{ asset('images/ハートロゴ_デフォルト.png') }}" alt="♡" class="favorite-icon__img">
+                    </button>
+                </form>
+                <form action="/item/{{ $item['id'] }}" method="post" class="favorite-icon" id="favorite-icon__pink">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="favorite-icon__button-submit">
+                        <img src="{{ asset('images/ハートロゴ_ピンク.png') }}" alt="❤️" class="favorite-icon__img">
+                    </button>
+                </form>
+                <a href="/login" class="favorite-icon" id="favorite-icon__default">
                     <img src="{{ asset('images/ハートロゴ_デフォルト.png') }}" alt="♡" class="favorite-icon__img">
-                </div>
+                </a>
                 <p class="favorite-count">{{ $item['favorites']->count() }}</p>
             </div>
             <div class="utilities-comment">
-                <!-- Todo：コメントのアイコンを押した時に何か起こる機能要件があるか確認、なければコメントまで移動か -->
                 <div class="comment-icon">
                     <img src="{{ asset('images/ふきだしロゴ.png') }}" alt="コメント数" class="comment-icon__img">
                 </div>
@@ -76,7 +88,28 @@
 
 @section('script')
 <script>
+    function changeFavoriteIcon(isActiveIcon)
+    {
+        document.querySelectorAll('.favorite-icon').forEach(favoriteIcon => {
+            favoriteIcon.classList.toggle('is-active__block', isActiveIcon === favoriteIcon.id);
+        })
+    }
+
     const price = @json($item['price']);
     document.getElementById('item-price').innerText = price.toLocaleString("ja-JP");
+
+    const itemId = @json($item['id']);
+    const user = @json($user);
+    const favorites = @json($favorites);
+    if (user) {
+        const favorite = favorites.find(({id}) => id === itemId);
+        if (favorite) {
+            changeFavoriteIcon('favorite-icon__pink');
+        } else {
+            changeFavoriteIcon('favorite-icon__login');
+        }
+    } else {
+            changeFavoriteIcon('favorite-icon__default');
+    }
 </script>
 @endsection
