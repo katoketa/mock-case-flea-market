@@ -78,9 +78,11 @@
         @endforeach
         <form action="/item/{{ $item['id'] }}" method="post" class="comment-form">
             @csrf
+            <input type="hidden" name="user_id" value="{{ $user['id'] }}">
+            <input type="hidden" name="item_id" value="{{ $item['id'] }}">
             <h3 class="comment-form__header">商品へのコメント</h3>
             <textarea name="comment" id="" class="comment-form__textarea"></textarea>
-            <button type="button" class="comment-form__button-submit">コメントを送信する</button>
+            <button type="submit" class="comment-form__button-submit">コメントを送信する</button>
         </form>
     </div>
 </div>
