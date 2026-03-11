@@ -100,9 +100,19 @@
     display: flex;
 }
 
-.delivery-address__postal-code, .delivery-address__address, .delivery-address__building {
+.delivery-address__postal-code-wrapper {
     margin: 0;
+    font-size: 15px;
     font-weight: bold;
+}
+
+.delivery-address__postal-code, .delivery-address__address, .delivery-address__building {
+    font-family: "Inter", sans-serif;
+    field-sizing: content;
+    padding: 0;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
 }
 
 .delivery-address__building {
