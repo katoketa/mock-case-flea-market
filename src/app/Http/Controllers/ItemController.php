@@ -32,9 +32,35 @@ class ItemController extends Controller
 
     public function detail(Item $item)
     {
-        return view('detail', ['item' => $item]);
+        $user = Auth::user();
+        if ($user) {
+            $favorites = $user->favorites;
+        } else {
+            $favorites = null;
+        }
+        return view('detail', compact('item', 'user', 'favorites'));
     }
 
+    public function createFavorite(Item $item)
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return;
+        }
+        $item->favorites()->attach($user['id']);
+        return redirect('item/' . $item['id']);
+    }
+    
+    public function deleteFavorite(Item $item)
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return;
+        }
+        $item->favorites()->detach($user['id']);
+        return redirect('item/' . $item['id']);
+    }
+    
     public function sell()
     {
         $categories = Category::all();
