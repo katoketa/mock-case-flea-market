@@ -51,7 +51,7 @@ class ItemController extends Controller
         return redirect('item/' . $item['id']);
     }
     
-    public function deleteFavorite(Item $item)
+    public function destroyFavorite(Item $item)
     {
         $user = Auth::user();
         if (!$user) {
