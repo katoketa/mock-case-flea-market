@@ -11,6 +11,7 @@
 @section('content')
 <div class="purchase">
     <form action="/purchase/{{ $item['id'] }}" method="post" class="purchase-form">
+        @csrf
         <div class="purchase-form__left">
             <div class="purchase-form__header">
                 <div class="purchase-form__image">
