@@ -9,7 +9,9 @@ class PurchaseHistory extends Model
     protected $fillable = [
         'buyer_id',
         'item_id',
-        'send_address',
+        'postal_code',
+        'address',
+        'building'
     ];
 
     public function user()

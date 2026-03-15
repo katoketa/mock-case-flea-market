@@ -85,5 +85,5 @@ class ItemController extends Controller
         $destinationAddress = $request->only('postal_code', 'address', 'building');
         return view('purchase', compact('item', 'profile', 'destinationAddress'));
     }
-    
+
 }
