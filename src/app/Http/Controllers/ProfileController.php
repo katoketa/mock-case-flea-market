@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
 use App\Models\User;
@@ -40,11 +39,19 @@ class ProfileController extends Controller
         User::find($user->id)->update(['name' => $request->name]);
         $profile = $request->only(['image', 'postal_code', 'address', 'building']);
         $profile['user_id'] = $user['id'];
+
+        if ($request->image) {
+            $fileName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('', $fileName, 'public');
+            $profile['image'] = 'storage/' . $fileName;
+        }
+
         if (empty($request->id)) {
             Profile::create($profile);
+            return redirect('/');
         } else {
             Profile::find($request->id)->update($profile);
+            return redirect('/mypage');
         }
-        return redirect('/');
     }
 }
