@@ -11,7 +11,7 @@
 @section('content')
 <div class="edit-profile">
     <h2 class="edit-profile__header">プロフィール設定</h2>
-    <form action="/mypage/profile" method="post" class="edit-form" novalidate>
+    <form action="/mypage/profile" method="post" class="edit-form" enctype="multipart/form-data" novalidate>
         @csrf
         @if(!empty($user['profile']))
         <input type="hidden" name="id" value="{{ $user['profile']['id'] }}">
@@ -36,4 +36,21 @@
         <button type="submit" class="edit-form__button-submit">更新する</button>
     </form>
 </div>
+@endsection
+
+@section('script')
+<script>
+    const fileInput = document.getElementById('image');
+    const preview = document.querySelector('.show-image__img');
+    fileInput.addEventListener('change', event => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.addEventListener('load', event => {
+                preview.src = event.target.result;
+            });
+            reader.readAsDataURL(file);
+        }
+    })
+</script>
 @endsection
