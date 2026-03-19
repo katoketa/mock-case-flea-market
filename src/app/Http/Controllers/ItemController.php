@@ -68,6 +68,21 @@ class ItemController extends Controller
         return view('sell', compact('categories', 'conditions'));
     }
 
+    public function create(Request $request)
+    {
+        $createItem = $request->only('condition_id', 'name', 'brand', 'description', 'price');
+        $createItem['seller_id'] = Auth::id();
+
+        $fileName = $request->file('image')->store('items', 'public');
+        $createItem['image'] = 'storage/' . $fileName;
+
+        $item = Item::create($createItem);
+        $categories = $request->categories;
+        $item->categories()->attach($categories);
+
+        return redirect('/');
+    }
+    
     public function purchase(Item $item)
     {
         $profile = Auth::user()->profile;
