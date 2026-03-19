@@ -46,4 +46,12 @@ class Item extends Model
         return $this->hasOne(PurchaseHistory::class);
     }
 
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if ($keyword) {
+            $query->where('name', 'like', '%' . $keyword . '%');
+        }
+
+        return $query;
+    }
 }

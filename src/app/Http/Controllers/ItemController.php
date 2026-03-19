@@ -17,17 +17,16 @@ class ItemController extends Controller
             if ($request->tab === "mylist") {
                 $items = [];
             } else {
-                $items = Item::with('purchase_history')->get();
+                $items = Item::with('purchase_history')->KeywordSearch($request->keyword)->get();
             }
         }  else {
             if ($request->tab === "mylist") {
-                $items = Auth::user()->favorites;
-                $items->load('purchase_history');
+                $items = Auth::user()->favorites()->KeywordSearch($request->keyword)->get();
             } else {
-                $items = Item::with('purchase_history')->get();
+                $items = Item::with('purchase_history')->KeywordSearch($request->keyword)->get();
             }
         }
-        return view('index', ['items' => $items, 'tab' => $request->tab]);
+        return view('index', ['items' => $items, 'tab' => $request->tab, 'keyword' => $request->keyword]);
     }
 
     public function detail(Item $item)
@@ -100,5 +99,4 @@ class ItemController extends Controller
         $destinationAddress = $request->only('postal_code', 'address', 'building');
         return view('purchase', compact('item', 'profile', 'destinationAddress'));
     }
-
 }

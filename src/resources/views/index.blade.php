@@ -13,15 +13,26 @@
 <div class="index-page">
     <div class="index-page__header">
         @if (empty($tab))
-        <span class="page-tab page-tab__select">おすすめ</span>
+        <div class="page-tab page-tab__select">おすすめ</div>
         @else
-        <a href="/" class="page-tab">おすすめ</a>
+        <form action="/" method="get">
+            @if (!empty($keyword))
+            <input type="hidden" name="keyword" value="{{ $keyword }}">
+            @endif
+            <button type="submit" class="page-tab">おすすめ</button>
+        </form>
         @endif
         @if (!empty($tab) && $tab === 'mylist')
-        <span class="page-tab page-tab__select">マイリスト</span>
+        <div class="page-tab page-tab__select">マイリスト</div>
         @else
-        <a href="/?tab=mylist" class="page-tab">マイリスト</a>
+        <form action="/" method="get">
+            <input type="hidden" name="tab" value="mylist">
+            @if (!empty($keyword))
+            <input type="hidden" name="keyword" value="{{ $keyword }}">
+            @endif
+            <button type="submit" class="page-tab">マイリスト</button>
+        </form>
         @endif
     </div>
     @include('items_exhibition', ['showSoldState' => true])
-@endsection
+    @endsection
