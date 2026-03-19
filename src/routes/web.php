@@ -11,6 +11,7 @@ Route::get('/item/{item}', [ItemController::class, 'detail']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/sell', [ItemController::class, 'sell']);
+    Route::post('/sell', [ItemController::class, 'create']);
     Route::get('/mypage', [ProfileController::class, 'mypage']);
     Route::get('/mypage/profile', [ProfileController::class, 'edit']);
     Route::post('/mypage/profile', [ProfileController::class, 'update']);

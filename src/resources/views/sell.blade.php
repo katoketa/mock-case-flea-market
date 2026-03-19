@@ -11,7 +11,7 @@
 @section('content')
 <div class="sell-page">
     <h2 class="sell-page__header-title">商品の出品</h2>
-    <form action="/" method="post" class="sell-form">
+    <form action="/sell" method="post" class="sell-form" enctype="multipart/form-data">
         @csrf
         <div class="sell-form__image-upload">
             <h3 class="image-upload__header">商品画像</h3>
@@ -30,14 +30,14 @@
             <h4 class="detail-categories__header">カテゴリー</h4>
             <div class="detail-categories">
                 @foreach ($categories as $category)
-                <input type="checkbox" name="category[]" id="category{{ $category['id'] }}" class="detail-category__checkbox">
+                <input type="checkbox" name="categories[]" id="category{{ $category['id'] }}" class="detail-category__checkbox" value="{{ $category['id'] }}">
                 <label for="category{{ $category['id'] }}" class="detail-category__label">{{ $category['name'] }}</label>
                 @endforeach
             </div>
             <div class="detail-condition">
                 <label class="detail-condition__header">商品の状態</label>
                 <div class="detail-condition__select-wrapper">
-                    <select name="condition" id="" class="detail-condition__select">
+                    <select name="condition_id" id="" class="detail-condition__select">
                         <option value="" class="detail-condition__option" selected hidden>選択してください</option>
                         @foreach ($conditions as $condition)
                         <option value="{{ $condition['id'] }}" class="detail-condition__option">{{ $condition['name'] }}</option>
