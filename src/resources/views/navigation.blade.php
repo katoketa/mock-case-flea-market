@@ -1,7 +1,9 @@
-<!-- メモ：cssはcommon.cssに記述 -->
 <form action="/" method="get" class="search-form">
     <!-- TODO：今開いているのがおすすめなのかマイリストなのかを保持するためにデータを送る必要がある(defaultはおすすめ) -->
-    <input type="text" class="search-form__input" placeholder="なにをお探しですか？">
+    @if (isset($tab))
+    <input type="hidden" name="tab" value="{{ $tab }}">
+    @endif
+    <input type="text" class="search-form__input" name="keyword" placeholder="なにをお探しですか？" @if (isset($keyword)) value="{{ $keyword }}" @endif>
 </form>
 <nav>
     <ul class="header-navigation">

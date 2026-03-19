@@ -1,18 +1,21 @@
 .index-page {
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 40px 0;
 }
 
 .index-page__header {
+    display: flex;
     padding: 0 200px;
     border-bottom: 1px solid #5f5f5f;
 }
 
 .page-tab {
-    padding: 10px 50px 0 0;
+    padding: 0 50px 5px 0;
     color: #5f5f5f;
+    font-size: 20px;
     font-weight: bold;
-    text-decoration: none;
+    border: none;
+    background: transparent;
 }
 
 .page-tab__select {
