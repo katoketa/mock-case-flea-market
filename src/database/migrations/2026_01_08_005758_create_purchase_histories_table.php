@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('item_id')->constrained();
             $table->string('postal_code');
             $table->string('address');
-            $table->string('building');
+            $table->string('building')->nullable();
             $table->timestamps();
         });
     }

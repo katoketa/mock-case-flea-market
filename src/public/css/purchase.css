@@ -165,8 +165,14 @@
     border: none;
     border-radius: 3px;
     background-color: #ff5555;
+    cursor: pointer;
 }
 
 .is-active {
     display: revert;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
 }

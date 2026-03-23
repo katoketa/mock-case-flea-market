@@ -85,7 +85,10 @@
             @endauth
             <input type="hidden" name="item_id" value="{{ $item['id'] }}">
             <h3 class="comment-form__header">商品へのコメント</h3>
-            <textarea name="comment" id="" class="comment-form__textarea"></textarea>
+            <textarea name="comment" id="" class="comment-form__textarea">{{ old('comment') }}</textarea>
+            @error('comment')
+            <div class="error-message">{{ $message }}</div>
+            @enderror
             <button type="submit" class="comment-form__button-submit">コメントを送信する</button>
         </form>
     </div>
@@ -94,8 +97,7 @@
 
 @section('script')
 <script>
-    function changeFavoriteIcon(isActiveIcon)
-    {
+    function changeFavoriteIcon(isActiveIcon) {
         document.querySelectorAll('.favorite-icon').forEach(favoriteIcon => {
             favoriteIcon.classList.toggle('is-active__block', isActiveIcon === favoriteIcon.id);
         })
@@ -108,14 +110,16 @@
     const user = @json($user);
     const favorites = @json($favorites);
     if (user) {
-        const favorite = favorites.find(({id}) => id === itemId);
+        const favorite = favorites.find(({
+            id
+        }) => id === itemId);
         if (favorite) {
             changeFavoriteIcon('favorite-icon__pink');
         } else {
             changeFavoriteIcon('favorite-icon__login');
         }
     } else {
-            changeFavoriteIcon('favorite-icon__default');
+        changeFavoriteIcon('favorite-icon__default');
     }
 </script>
 @endsection

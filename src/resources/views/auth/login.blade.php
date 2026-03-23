@@ -9,7 +9,7 @@
     <div class="login-page__header">
         <h2>ログイン</h2>
     </div>
-    <form action="/login" method="post" class="login-form">
+    <form action="/login" method="post" class="login-form" novalidate>
         @csrf
         <label for="" class="login-form__label">メールアドレス</label>
         <input type="email" name="email" id="" class="login-form__input">

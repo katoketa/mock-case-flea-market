@@ -23,15 +23,15 @@ class ExhibitionRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'description' => 'required|max:255',
-            'image' => 'required|mimes:jpeg,png|extensions:jpeg,png',
+            'description' => ['required', 'max:255'],
+            'image' => ['required', 'mimes:jpeg,png', 'extensions:jpeg,png'],
             'categories' => 'required',
             'condition' => 'required',
-            'price' => 'required|integer|min:0',
+            'price' => ['required' , 'integer', 'min:0'],
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
             'name.required' => '商品名が入力されていません',

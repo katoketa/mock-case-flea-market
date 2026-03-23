@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AddressRequest;
+use App\Http\Requests\ExhibitionRequest;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\Condition;
@@ -67,7 +69,7 @@ class ItemController extends Controller
         return view('sell', compact('categories', 'conditions'));
     }
 
-    public function create(Request $request)
+    public function create(ExhibitionRequest $request)
     {
         $createItem = $request->only('condition_id', 'name', 'brand', 'description', 'price');
         $createItem['seller_id'] = Auth::id();
@@ -93,7 +95,7 @@ class ItemController extends Controller
         return view('change_address', compact('item'));
     }
 
-    public function updateAddress(Request $request, Item $item)
+    public function updateAddress(AddressRequest $request, Item $item)
     {
         $profile = Auth::user()->profile;
         $destinationAddress = $request->only('postal_code', 'address', 'building');

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CommentRequest;
 use App\Models\Item;
 use App\Models\Comment;
 
 class CommentController extends Controller
 {
-    public function create(Request $request, Item $item)
+    public function create(CommentRequest $request, Item $item)
     {
         $create_comment = $request->only('user_id', 'item_id', 'comment');
         Comment::create($create_comment);

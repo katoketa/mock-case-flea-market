@@ -22,9 +22,9 @@ class ProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => 'mimes:jpeg,png|extensions:jpeg,png',
-            'name' => 'required|max:20',
-            'postal_code' => 'required|regex:/^\d{3}[-]\d{4}$/',
+            'image' => ['mimes:jpeg,png', 'extensions:jpeg,png'],
+            'name' => ['required', 'max:20'],
+            'postal_code' => ['required', 'regex:/^\d{3}[-]\d{4}$/'],
             'address' => 'required',
         ];
     }
@@ -37,7 +37,7 @@ class ProfileRequest extends FormRequest
             'name.required' => '名前が入力されていません',
             'name.max' => '文字数が20文字を超えています',
             'postal_code.required' => '郵便番号が入力されていません',
-            'postal_code.regex' => '郵便番号はハイフンを含む8文字で入力してください',
+            'postal_code.regex' => '郵便番号はハイフンを含むXXX-XXXXの形式で入力してください',
             'address.required' => '住所が入力されていません',
         ];
     }

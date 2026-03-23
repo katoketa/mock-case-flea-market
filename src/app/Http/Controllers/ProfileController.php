@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
 use App\Models\User;
@@ -33,7 +34,7 @@ class ProfileController extends Controller
         return view('edit_profile', compact('user'));
     }
 
-    public function update(Request $request)
+    public function update(ProfileRequest $request)
     {
         $user = Auth::user();
         User::find($user->id)->update(['name' => $request->name]);
