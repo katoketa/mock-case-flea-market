@@ -12,11 +12,20 @@
     <form action="/register" method="post" class="register-form" novalidate>
         @csrf
         <label class="register-form__label">ユーザー名</label>
-        <input type="text" name="name" class="register-form__input">
+        <input type="text" name="name" class="register-form__input" value="{{ old('name') }}">
+        @error('name')
+        <div class="error-message">{{ $message }}</div>
+        @enderror
         <label class="register-form__label">メールアドレス</label>
-        <input type="email" name="email" class="register-form__input">
+        <input type="email" name="email" class="register-form__input" value="{{ old('email') }}">
+        @error('email')
+        <div class="error-message">{{ $message }}</div>
+        @enderror
         <label for="" class="register-form__label">パスワード</label>
         <input type="password" name="password" id="" class="register-form__input">
+        @error('password')
+        <div class="error-message">{{ $message }}</div>
+        @enderror
         <label for="" class="register-form__label">確認用パスワード</label>
         <input type="password" name="password_confirmation" id="" class="register-form__input">
         <div class="register-form__button">

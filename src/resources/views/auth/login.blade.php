@@ -12,9 +12,15 @@
     <form action="/login" method="post" class="login-form" novalidate>
         @csrf
         <label for="" class="login-form__label">メールアドレス</label>
-        <input type="email" name="email" id="" class="login-form__input">
+        <input type="email" name="email" id="" class="login-form__input" value="{{ old('email') }}">
+        @error('email')
+        <div class="error-message">{{ $message }}</div>
+        @enderror
         <label for="" class="login-form__label">パスワード</label>
         <input type="password" name="password" id="" class="login-form__input">
+        @error('password')
+        <div class="error-message">{{ $message }}</div>
+        @enderror
         <div class="login-form__button">
             <button type="submit" class="login-form__button-submit">ログインする</button>
         </div>
