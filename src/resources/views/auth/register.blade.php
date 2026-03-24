@@ -28,6 +28,9 @@
         @enderror
         <label for="" class="register-form__label">確認用パスワード</label>
         <input type="password" name="password_confirmation" id="" class="register-form__input">
+        @error('password_confirmation')
+        <div class="error-message">{{ $message }}</div>
+        @enderror
         <div class="register-form__button">
             <button type="submit" class="register-form__button-submit">登録する</button>
         </div>
