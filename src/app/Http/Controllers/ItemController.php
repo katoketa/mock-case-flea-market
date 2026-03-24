@@ -14,16 +14,16 @@ class ItemController extends Controller
 {
     public function index(Request $request)
     {
-        // TODO：自分が出品した商品は除外するようにする（認証時、おすすめ表示)
-        if (empty(Auth::user())) {
+        $user = Auth::user();
+        if ($user) {
+            if ($request->tab === "mylist") {
+                $items = $user->favorites()->KeywordSearch($request->keyword)->get();
+            } else {
+                $items = Item::with('purchase_history')->where('seller_id', '<>', $user->id)->KeywordSearch($request->keyword)->get();
+            }
+        } else {
             if ($request->tab === "mylist") {
                 $items = [];
-            } else {
-                $items = Item::with('purchase_history')->KeywordSearch($request->keyword)->get();
-            }
-        }  else {
-            if ($request->tab === "mylist") {
-                $items = Auth::user()->favorites()->KeywordSearch($request->keyword)->get();
             } else {
                 $items = Item::with('purchase_history')->KeywordSearch($request->keyword)->get();
             }

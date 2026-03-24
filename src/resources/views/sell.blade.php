@@ -52,7 +52,7 @@
                         <option value="" class="detail-condition__option" selected hidden>選択してください</option>
                         @endif
                         @foreach ($conditions as $condition)
-                        @if (old('condition_id') === $condition['id'])
+                        @if (old('condition_id') == $condition['id'])
                         <option value="{{ $condition['id'] }}" class="detail-condition__option" selected>{{ $condition['name'] }}</option>
                         @else
                         <option value="{{ $condition['id'] }}" class="detail-condition__option">{{ $condition['name'] }}</option>

@@ -30,7 +30,7 @@
         @enderror
         <label for="name" class="edit-form__header">ユーザー名</label>
         @if (empty(old('name')))
-        <input type="text" name="name" id="name" class="edit-form__input" @if (!empty($user['profile'])) value="{{ $user['name'] }}" @endif>
+        <input type="text" name="name" id="name" class="edit-form__input" value="{{ $user['name'] }}">
         @else
         <input type="text" name="name" id="name" class="edit-form__input" value="{{ old('name') }}">
         @endif
