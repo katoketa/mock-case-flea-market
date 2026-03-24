@@ -34,7 +34,7 @@
                 <p class="items-header__title items-header__title--select">購入した商品</p>
                 @endif
         </div>
-        @include('items_exhibition', ['showSoldState' => false])
+        @include('items_exhibition', $page === "buy" ? ['showSoldState' => false] : ['showSoldState' => true])
     </div>
 </div>
 @endsection
