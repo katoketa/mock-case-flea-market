@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="purchase">
-    <form action="/purchase/{{ $item['id'] }}" method="post" class="purchase-form">
+    <form action="/purchase/payment/{{ $item['id'] }}" method="post" class="purchase-form">
         @csrf
         <div class="purchase-form__left">
             <div class="purchase-form__header">
@@ -35,6 +35,9 @@
                             <option value="payment_convenience" class="payment-method__option">コンビニ支払い</option>
                             <option value="payment_card" class="payment-method__option">カード支払い</option>
                         </select>
+                        @error('payment_method')
+                        <div class="error-message">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -61,6 +64,12 @@
                         <input type="text" name="building" class="delivery-address__building" value="{{ $destinationAddress['building'] }}" readonly>
                     </div>
                     @endif
+                    @error('postal_code')
+                    <div class="error-message">{{ $message }}</div>
+                    @enderror
+                    @error('address')
+                    <div class="error-message">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
         </div>
