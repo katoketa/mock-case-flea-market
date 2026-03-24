@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/item/{item}', [ItemController::class, 'createFavorite']);
     Route::delete('/item/{item}', [ItemController::class, 'destroyFavorite']);
     Route::get('/purchase/{item}', [ItemController::class, 'purchase']);
-    Route::post('/purchase/{item}', [PurchaseHistoryController::class, 'payment']);
+    Route::post('/purchase/{item}', [ItemController::class, 'updateAddress']);
+    Route::post('/purchase/payment/{item}', [PurchaseHistoryController::class, 'payment']);
     Route::get('/purchase/address/{item}', [ItemController::class, 'editAddress']);
-    Route::post('/purchase/address/{item}', [ItemController::class, 'updateAddress']);
 });
