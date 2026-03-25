@@ -52,7 +52,7 @@
                         〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $user['profile']['postal_code'] }}" readonly>
                     </p>
                     <div class="delivery-address__address-building">
-                        <input type="text" name="address" class="delivery-address__address" value="{{ $user['profile']['address'] }}" readonly>
+                        <input type="text" name="address"  id="address" class="delivery-address__address" value="{{ $user['profile']['address'] }}" readonly>
                         <input type="text" name="building" class="delivery-address__building" value="{{ $user['profile']['building'] }}" readonly>
                     </div>
                     @else
@@ -60,7 +60,7 @@
                         〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $destinationAddress['postal_code'] }}" readonly>
                     </p>
                     <div class="delivery-address__address-building">
-                        <input type="text" name="address" class="delivery-address__address" value="{{ $destinationAddress['address'] }}" readonly>
+                        <input type="text" name="address" id="address" class="delivery-address__address" value="{{ $destinationAddress['address'] }}" readonly>
                         <input type="text" name="building" class="delivery-address__building" value="{{ $destinationAddress['building'] }}" readonly>
                     </div>
                     @endif
@@ -115,5 +115,13 @@
             })
         })
     }
+
+    const ctx = document.createElement('canvas').getContext('2d');
+    ctx.font = '15px "Inter"';
+    const address = document.getElementById('address');
+    console.log(address.value);
+    const width = ctx.measureText(address.value).width;
+    console.log(width);
+    address.style.width = String(width) + "px";
 </script>
 @endsection

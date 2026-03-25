@@ -83,7 +83,9 @@
 .payment-method__select {
     width: 100%;
     padding: 5px 3px;
+    border: 1px solid #5f5f5f;
     border-radius: 3px;
+    background: white;
     appearance: none;
 }
 
@@ -97,7 +99,6 @@
 }
 
 .delivery-address__address-building {
-    display: flex;
 }
 
 .delivery-address__postal-code-wrapper {
@@ -108,7 +109,6 @@
 
 .delivery-address__postal-code, .delivery-address__address, .delivery-address__building {
     font-family: "Inter", sans-serif;
-    field-sizing: content;
     padding: 0;
     font-size: 15px;
     font-weight: bold;
