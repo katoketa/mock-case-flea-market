@@ -49,11 +49,11 @@
                 <div class="purchase-form__content-item">
                     @if (empty($destinationAddress))
                     <p class="delivery-address__postal-code-wrapper">
-                        〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $profile['postal_code'] }}" readonly>
+                        〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $user['profile']['postal_code'] }}" readonly>
                     </p>
                     <div class="delivery-address__address-building">
-                        <input type="text" name="address" class="delivery-address__address" value="{{ $profile['address'] }}" readonly>
-                        <input type="text" name="building" class="delivery-address__building" value="{{ $profile['building'] }}" readonly>
+                        <input type="text" name="address" class="delivery-address__address" value="{{ $user['profile']['address'] }}" readonly>
+                        <input type="text" name="building" class="delivery-address__building" value="{{ $user['profile']['building'] }}" readonly>
                     </div>
                     @else
                     <p class="delivery-address__postal-code">
@@ -90,9 +90,11 @@
                     </td>
                 </tr>
             </table>
-            <div class="purchase-form__button">
-                <button type="submit" class="purchase-form__button-submit">購入する</button>
-            </div>
+            @if ($user['id'] === $item['seller_id'])
+            <div class="purchase-form__button-submit purchase-form__button-submit--my-item">購入する</div>
+            @else
+            <button type="submit" class="purchase-form__button-submit">購入する</button>
+            @endif
         </div>
     </form>
 </div>

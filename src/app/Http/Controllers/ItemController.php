@@ -86,8 +86,8 @@ class ItemController extends Controller
     
     public function purchase(Item $item)
     {
-        $profile = Auth::user()->profile;
-        return view('purchase', compact('item', 'profile'));
+        $user = Auth::user();
+        return view('purchase', compact('item', 'user'));
     }
 
     public function editAddress(Item $item)

@@ -45,8 +45,10 @@
                 <p class="comment-count">{{ $item['comments']->count() }}</p>
             </div>
         </div>
-        @if (!empty($user) ? $user['id'] : false === $item['seller_id'] || !empty($item['purchase_history']))
+        @if (!empty($item['purchase_history']))
         <div class="transition__purchase-page transition__purchase-page--gray">売り切れ</div>
+        @elseif ((!empty($user) ? $user['id'] : false) === $item['seller_id'])
+        <div class="transition__purchase-page transition__purchase-page--gray">購入手続きへ</div>
         @else
         <a href="/purchase/{{ $item['id'] }}" class="transition__purchase-page">購入手続きへ</a>
         @endif

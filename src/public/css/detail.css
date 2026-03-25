@@ -89,6 +89,7 @@
     font-weight: bold;
     text-decoration: none;
     text-align: center;
+    border-radius: 3px;
     background-color: #ff5555;
     cursor: pointer;
 }
