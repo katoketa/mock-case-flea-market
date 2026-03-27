@@ -20,6 +20,8 @@
             <div class="show-image">
                 @if (!empty($user['profile']))
                 <img src="{{ asset($user['profile']['image']) }}" alt="" class="show-image__img">
+                @else
+                <img src="" alt="" class="show-image__img">
                 @endif
             </div>
             <label for="image" class="edit-image__label">画像を選択する</label>
@@ -72,6 +74,7 @@
     const preview = document.querySelector('.show-image__img');
     fileInput.addEventListener('change', event => {
         const file = event.target.files[0];
+        console.log(file);
         if (file) {
             const reader = new FileReader();
             reader.addEventListener('load', event => {
