@@ -38,9 +38,15 @@
 
 .exhibition-card__image-sold {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    margin: 0 auto;
     color: white;
-    font-size: 30px;
+    font-size: 70px;
     font-weight: bold;
+    text-align: center;
+    transform: translate(-50%, -50%);
 }
 
 .exhibition-card__name {

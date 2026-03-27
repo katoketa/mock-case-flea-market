@@ -66,6 +66,7 @@
     color: #5f5f5f;
     font-weight: bold;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .items-header__title:first-child {
@@ -78,4 +79,5 @@
 
 .items-header__title--select {
     color: red;
+    cursor: auto;
 }

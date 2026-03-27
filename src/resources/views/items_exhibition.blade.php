@@ -4,7 +4,7 @@
         <div class="exhibition-card__image">
             @if (!empty($item['purchase_history']) && $showSoldState == true)
             <img src="{{ asset($item['image']) }}" alt="商品画像" class="exhibition-card__image-img image-img__sold">
-            <p class="exhibition-card__image-sold">SOLD</p>
+            <p class="exhibition-card__image-sold">Sold</p>
             @else
             <img src="{{ asset($item['image']) }}" alt="商品画像" class="exhibition-card__image-img">
             @endif

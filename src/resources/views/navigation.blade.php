@@ -1,5 +1,4 @@
 <form action="/" method="get" class="search-form">
-    <!-- TODO：今開いているのがおすすめなのかマイリストなのかを保持するためにデータを送る必要がある(defaultはおすすめ) -->
     @if (isset($tab))
     <input type="hidden" name="tab" value="{{ $tab }}">
     @endif

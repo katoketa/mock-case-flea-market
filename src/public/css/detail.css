@@ -89,8 +89,14 @@
     font-weight: bold;
     text-decoration: none;
     text-align: center;
+    border-radius: 3px;
     background-color: #ff5555;
     cursor: pointer;
+}
+
+.transition__purchase-page--gray {
+    background: #d9d9d9;
+    cursor: auto;
 }
 
 .item-description {
@@ -119,15 +125,23 @@
 }
 
 .item-data__table-categories {
-
+    padding-left: 50px;
 }
 
 .item-data__table-category {
+    margin-left: 10px;
+    padding: 5px 20px;
+    font-size: 14px;
+    background: #d9d9d9;
+    border-radius: 14px;
+}
 
+.item-data__table-category:first-of-type {
+    margin: 0;
 }
 
 .item-data__table-condition {
-
+    padding-left: 70px;
 }
 
 .comments-header {
@@ -138,23 +152,37 @@
 }
 
 .comment-user {
-
+    display: flex;
+    align-items: center;
 }
 
 .comment-user__image {
-    
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .comment-user__image-img {
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    transform: translate(-50%, -50%);
 }
 
 .comment-user__name {
-
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .comment-content {
-
+    padding: 15px 10px;
+    background: #d9d9d9;
+    border-radius: 3px;
 }
 
 .comment-form {
@@ -168,6 +196,7 @@
 .comment-form__textarea {
     width: 100%;
     height: 200px;
+    padding: 15px 10px;
 }
 
 .comment-form__button-submit {

@@ -49,18 +49,18 @@
                 <div class="purchase-form__content-item">
                     @if (empty($destinationAddress))
                     <p class="delivery-address__postal-code-wrapper">
-                        〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $profile['postal_code'] }}" readonly>
+                        〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $user['profile']['postal_code'] }}" readonly>
                     </p>
                     <div class="delivery-address__address-building">
-                        <input type="text" name="address" class="delivery-address__address" value="{{ $profile['address'] }}" readonly>
-                        <input type="text" name="building" class="delivery-address__building" value="{{ $profile['building'] }}" readonly>
+                        <input type="text" name="address"  id="address" class="delivery-address__address" value="{{ $user['profile']['address'] }}" readonly>
+                        <input type="text" name="building" class="delivery-address__building" value="{{ $user['profile']['building'] }}" readonly>
                     </div>
                     @else
                     <p class="delivery-address__postal-code">
                         〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $destinationAddress['postal_code'] }}" readonly>
                     </p>
                     <div class="delivery-address__address-building">
-                        <input type="text" name="address" class="delivery-address__address" value="{{ $destinationAddress['address'] }}" readonly>
+                        <input type="text" name="address" id="address" class="delivery-address__address" value="{{ $destinationAddress['address'] }}" readonly>
                         <input type="text" name="building" class="delivery-address__building" value="{{ $destinationAddress['building'] }}" readonly>
                     </div>
                     @endif
@@ -90,9 +90,11 @@
                     </td>
                 </tr>
             </table>
-            <div class="purchase-form__button">
-                <button type="submit" class="purchase-form__button-submit">購入する</button>
-            </div>
+            @if ($user['id'] === $item['seller_id'])
+            <div class="purchase-form__button-submit purchase-form__button-submit--my-item">購入する</div>
+            @else
+            <button type="submit" class="purchase-form__button-submit">購入する</button>
+            @endif
         </div>
     </form>
 </div>
@@ -113,5 +115,13 @@
             })
         })
     }
+
+    const ctx = document.createElement('canvas').getContext('2d');
+    ctx.font = '15px "Inter"';
+    const address = document.getElementById('address');
+    console.log(address.value);
+    const width = ctx.measureText(address.value).width;
+    console.log(width);
+    address.style.width = String(width) + "px";
 </script>
 @endsection

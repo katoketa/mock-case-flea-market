@@ -9,7 +9,6 @@
 @endsection
 
 @section('content')
-
 <div class="detail-page">
     <div class="item-image">
         <img src="{{ asset($item['image']) }}" alt="商品画像" class="item-image__img">
@@ -46,7 +45,13 @@
                 <p class="comment-count">{{ $item['comments']->count() }}</p>
             </div>
         </div>
+        @if (!empty($item['purchase_history']))
+        <div class="transition__purchase-page transition__purchase-page--gray">売り切れ</div>
+        @elseif ((!empty($user) ? $user['id'] : false) === $item['seller_id'])
+        <div class="transition__purchase-page transition__purchase-page--gray">購入手続きへ</div>
+        @else
         <a href="/purchase/{{ $item['id'] }}" class="transition__purchase-page">購入手続きへ</a>
+        @endif
         <div class="item-description">
             <h3 class="item-description__title">商品説明</h3>
             <div class="item-description__content">{{ $item['description'] }}</div>
