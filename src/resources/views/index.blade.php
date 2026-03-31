@@ -34,5 +34,5 @@
         </form>
         @endif
     </div>
-    @include('items_exhibition', ['showSoldState' => true])
-    @endsection
+    @include('items_exhibition')
+@endsection
