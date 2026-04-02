@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
 use App\Models\User;
+use App\Models\Item;
 
 class SellTest extends TestCase
 {
@@ -26,9 +27,9 @@ class SellTest extends TestCase
         $this->actingAs($user);
         $response = $this->get('/sell');
         $response->assertStatus(200);
-        $image = UploadedFile::fake()->image('dummy.jpg', '300px', '300px')->size(100);
-        dd($image);
+        $image = UploadedFile::fake()->image('dummy.png', 300, 300)->size(100);
         $formData = [
+            'image' => $image,
             'name' => 'ゲーミングノートPC',
             'categories' => [1, 2, 3],
             'condition_id' => 1,
@@ -36,6 +37,19 @@ class SellTest extends TestCase
             'description' => 'とても高性能なゲーミングPCです',
             'price' => 199999,
         ];
-
+        $response = $this->post('/sell', $formData);
+        $response->assertStatus(302);
+        $response->assertRedirect('/');
+        unset($formData['image']);
+        $categories = $formData['categories'];
+        unset($formData['categories']);
+        $this->assertDatabaseHas('items', $formData);
+        $latestItem = Item::latest()->first()->toArray();
+        foreach ($categories as $category) {
+            $this->assertDatabaseHas('category_item', [
+                'item_id' => $latestItem['id'],
+                'category_id' => $category,
+            ]);
+        }
     }
 }
