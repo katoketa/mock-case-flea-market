@@ -20,6 +20,7 @@ class DetailTest extends TestCase
         // 必要な情報が表示される
         $selectItem = 9;
         $item = Item::find($selectItem);
+        $item->load('comments.user.profile');
         $response = $this->get('/item/' . $selectItem);
         $response->assertStatus(200);
         $response->assertSee($item['image']);       // 商品画像の確認
@@ -32,9 +33,14 @@ class DetailTest extends TestCase
         $response->assertSee($item['condition']['name']);       // 商品の状態の確認
         $response->assertSee('コメント(' . $item['comments']->count() . ')');       // コメント数の確認
         foreach ($item['comments'] as $comment) {
-            $response->assertSee($comment['user']['profile']['image']);
+            $response->assertSee($comment['user']['profile']['image']);             // コメントしたユーザー情報の確認
             $response->assertSee($comment['user']['profile']['name']);
-            $response->assertSee($comment['comment']);
+            $response->assertSee($comment['comment']);                              // コメント内容の確認
+        }
+
+        // 複数選択せれたカテゴリが表示されているか
+        foreach ($item['categories'] as $category) {
+            $response->assertSee($category['name']);
         }
     }
 }

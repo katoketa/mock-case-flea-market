@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Comment;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -25,5 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoryItemSeeder::class);
         $this->call(PurchaseHistorySeeder::class);
         $this->call(FavoriteSeeder::class);
+
+        Comment::factory(100)->create();
     }
 }

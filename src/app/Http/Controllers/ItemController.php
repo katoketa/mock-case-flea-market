@@ -39,6 +39,7 @@ class ItemController extends Controller
         } else {
             $favorites = null;
         }
+        $item->load('comments.user.profile');
         return view('detail', compact('item', 'user', 'favorites'));
     }
 

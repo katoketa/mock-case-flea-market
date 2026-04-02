@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class RegisterTest extends TestCase
@@ -112,5 +113,9 @@ class RegisterTest extends TestCase
         $response->assertStatus(200);
         $response->assertSee('プロフィール設定');
         $response->assertSessionHasNoErrors();
+        $this->assertDatabaseHas('users', [
+            'name' => '河内徹子',
+            'email' => 'coachtech@gmail.com'
+        ]);
     }
 }
