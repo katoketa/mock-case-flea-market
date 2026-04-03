@@ -19,7 +19,7 @@ class ProfileController extends Controller
             $items->load('purchase_history');
         } elseif ($page === "buy") {
             $purchase_histories = $user->purchase_histories;
-            $purchase_histories->load('item');
+            $purchase_histories->load('item.purchase_history');
             $items = [];
             foreach ($purchase_histories as $purchase_history) {
                 $items[] = $purchase_history['item'];

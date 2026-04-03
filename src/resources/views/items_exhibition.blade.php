@@ -2,7 +2,7 @@
     @foreach ($items as $item)
     <a href="/item/{{ $item['id'] }}" class="exhibition-card">
         <div class="exhibition-card__image">
-            @if (!empty($item['purchase_history']) && $showSoldState == true)
+            @if (!empty($item['purchase_history']))
             <img src="{{ asset($item['image']) }}" alt="商品画像" class="exhibition-card__image-img image-img__sold">
             <p class="exhibition-card__image-sold">Sold</p>
             @else

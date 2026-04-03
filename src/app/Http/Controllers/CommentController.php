@@ -10,7 +10,8 @@ class CommentController extends Controller
 {
     public function create(CommentRequest $request, Item $item)
     {
-        $create_comment = $request->only('user_id', 'item_id', 'comment');
+        $create_comment = $request->only('user_id', 'comment');
+        $create_comment['item_id'] = $item['id'];
         Comment::create($create_comment);
         return redirect('/item/' . $item['id']);
     }

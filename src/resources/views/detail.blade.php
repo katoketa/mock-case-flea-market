@@ -19,14 +19,14 @@
         <p class="item-price">¥<span id="item-price" class="item-price__value">{{ $item['price'] }}</span>(税込)</p>
         <div class="item-utilities">
             <div class="utilities-favorite">
-                <form action="/item/{{ $item['id'] }}" method="post" class="favorite-icon" id="favorite-icon__login">
+                <form action="/item/{{ $item['id'] }}/favorite" method="post" class="favorite-icon" id="favorite-icon__login">
                     @csrf
                     @method('PATCH')
                     <button type="submit" class="favorite-icon__button-submit">
                         <img src="{{ asset('images/ハートロゴ_デフォルト.png') }}" alt="♡" class="favorite-icon__img">
                     </button>
                 </form>
-                <form action="/item/{{ $item['id'] }}" method="post" class="favorite-icon" id="favorite-icon__pink">
+                <form action="/item/{{ $item['id'] }}/favorite" method="post" class="favorite-icon" id="favorite-icon__pink">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="favorite-icon__button-submit">
@@ -83,12 +83,11 @@
         </div>
         <p class="comment-content">{{ $comment['comment'] }}</p>
         @endforeach
-        <form action="/item/{{ $item['id'] }}" method="post" class="comment-form">
+        <form action="/item/{{ $item['id'] }}/comment" method="post" class="comment-form">
             @csrf
             @auth
             <input type="hidden" name="user_id" value="{{ $user['id'] }}">
             @endauth
-            <input type="hidden" name="item_id" value="{{ $item['id'] }}">
             <h3 class="comment-form__header">商品へのコメント</h3>
             <textarea name="comment" id="" class="comment-form__textarea">{{ old('comment') }}</textarea>
             @error('comment')

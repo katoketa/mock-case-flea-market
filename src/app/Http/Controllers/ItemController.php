@@ -39,6 +39,7 @@ class ItemController extends Controller
         } else {
             $favorites = null;
         }
+        $item->load('comments.user.profile');
         return view('detail', compact('item', 'user', 'favorites'));
     }
 
@@ -87,7 +88,12 @@ class ItemController extends Controller
     public function purchase(Item $item)
     {
         $user = Auth::user();
-        return view('purchase', compact('item', 'user'));
+        $destinationAddress = [
+            'postal_code' => $user['profile']['postal_code'],
+            'address' => $user['profile']['address'],
+            'building' => $user['profile']['building'],
+        ];
+        return view('purchase', compact('item', 'user', 'destinationAddress'));
     }
 
     public function editAddress(Item $item)
@@ -97,8 +103,8 @@ class ItemController extends Controller
 
     public function updateAddress(AddressRequest $request, Item $item)
     {
-        $profile = Auth::user()->profile;
+        $user = Auth::user();
         $destinationAddress = $request->only('postal_code', 'address', 'building');
-        return view('purchase', compact('item', 'profile', 'destinationAddress'));
+        return view('purchase', compact('item', 'user', 'destinationAddress'));
     }
 }

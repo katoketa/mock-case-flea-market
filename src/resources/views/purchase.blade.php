@@ -47,22 +47,18 @@
                     <a href="/purchase/address/{{ $item['id'] }}" class="delivery-address__change">変更する</a>
                 </div>
                 <div class="purchase-form__content-item">
-                    @if (empty($destinationAddress))
+                    @if (empty(old('postal_code')) || empty(old('address')))
                     <p class="delivery-address__postal-code-wrapper">
-                        〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $user['profile']['postal_code'] }}" readonly>
+                        〒<input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $destinationAddress['postal_code'] }}" readonly>
                     </p>
-                    <div class="delivery-address__address-building">
-                        <input type="text" name="address"  id="address" class="delivery-address__address" value="{{ $user['profile']['address'] }}" readonly>
-                        <input type="text" name="building" class="delivery-address__building" value="{{ $user['profile']['building'] }}" readonly>
-                    </div>
+                    <input type="text" name="address" class="delivery-address__address" value="{{ $destinationAddress['address'] }}" readonly>
+                    <input type="text" name="building" class="delivery-address__building" value="{{ $destinationAddress['building'] }}" readonly>
                     @else
-                    <p class="delivery-address__postal-code">
-                        〒 <input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $destinationAddress['postal_code'] }}" readonly>
+                    <p class="delivery-address__postal-code-wrapper">
+                        〒<input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ old('postal_code') }}" readonly>
                     </p>
-                    <div class="delivery-address__address-building">
-                        <input type="text" name="address" id="address" class="delivery-address__address" value="{{ $destinationAddress['address'] }}" readonly>
-                        <input type="text" name="building" class="delivery-address__building" value="{{ $destinationAddress['building'] }}" readonly>
-                    </div>
+                    <input type="text" name="address" class="delivery-address__address" value="{{ old('address') }}" readonly>
+                    <input type="text" name="building" class="delivery-address__building" value="{{ old('building') }}" readonly>
                     @endif
                     @error('postal_code')
                     <div class="error-message">{{ $message }}</div>
@@ -115,13 +111,5 @@
             })
         })
     }
-
-    const ctx = document.createElement('canvas').getContext('2d');
-    ctx.font = '15px "Inter"';
-    const address = document.getElementById('address');
-    console.log(address.value);
-    const width = ctx.measureText(address.value).width;
-    console.log(width);
-    address.style.width = String(width) + "px";
 </script>
 @endsection
