@@ -9,6 +9,9 @@ use App\Models\User;
 
 class EditProfileTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected $seed = true;
     /**
      * A basic feature test example.
      */

@@ -21,7 +21,5 @@ class SearchTest extends TestCase
         $response = $this->get('/', ['keyword' => 'コーヒー']);
         $response->assertStatus(200);
         $response->assertSee('コーヒー');
-    
-        // 検索状態がマイリストでも保持されている
     }
 }
