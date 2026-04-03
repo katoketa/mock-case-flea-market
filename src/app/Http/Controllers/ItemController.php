@@ -88,7 +88,12 @@ class ItemController extends Controller
     public function purchase(Item $item)
     {
         $user = Auth::user();
-        return view('purchase', compact('item', 'user'));
+        $destinationAddress = [
+            'postal_code' => $user['profile']['postal_code'],
+            'address' => $user['profile']['address'],
+            'building' => $user['profile']['building'],
+        ];
+        return view('purchase', compact('item', 'user', 'destinationAddress'));
     }
 
     public function editAddress(Item $item)

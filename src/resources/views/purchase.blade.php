@@ -47,18 +47,18 @@
                     <a href="/purchase/address/{{ $item['id'] }}" class="delivery-address__change">変更する</a>
                 </div>
                 <div class="purchase-form__content-item">
-                    @if (empty($destinationAddress))
-                    <p class="delivery-address__postal-code-wrapper">
-                        〒<input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $user['profile']['postal_code'] }}" readonly>
-                    </p>
-                    <input type="text" name="address" class="delivery-address__address" value="{{ $user['profile']['address'] }}" readonly>
-                    <input type="text" name="building" class="delivery-address__building" value="{{ $user['profile']['building'] }}" readonly>
-                    @else
+                    @if (empty(old('postal_code')) || empty(old('address')))
                     <p class="delivery-address__postal-code-wrapper">
                         〒<input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ $destinationAddress['postal_code'] }}" readonly>
                     </p>
                     <input type="text" name="address" class="delivery-address__address" value="{{ $destinationAddress['address'] }}" readonly>
                     <input type="text" name="building" class="delivery-address__building" value="{{ $destinationAddress['building'] }}" readonly>
+                    @else
+                    <p class="delivery-address__postal-code-wrapper">
+                        〒<input type="text" name="postal_code" class="delivery-address__postal-code" value="{{ old('postal_code') }}" readonly>
+                    </p>
+                    <input type="text" name="address" class="delivery-address__address" value="{{ old('address') }}" readonly>
+                    <input type="text" name="building" class="delivery-address__building" value="{{ old('building') }}" readonly>
                     @endif
                     @error('postal_code')
                     <div class="error-message">{{ $message }}</div>
