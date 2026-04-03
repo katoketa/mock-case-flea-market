@@ -98,25 +98,25 @@
     text-decoration: none;
 }
 
-.delivery-address__address-building {
-}
-
 .delivery-address__postal-code-wrapper {
+    display: flex;
     margin: 0;
     font-size: 15px;
     font-weight: bold;
 }
 
 .delivery-address__postal-code, .delivery-address__address, .delivery-address__building {
-    font-family: "Inter", sans-serif;
+    display: block;
+    width: 100%;
     padding: 0;
     font-size: 15px;
     font-weight: bold;
     border: none;
+    outline: none;
 }
 
-.delivery-address__building {
-    margin-left: 10px;
+.delivery-address__postal-code {
+    padding-left: 8px;
 }
 
 .purchase-form__right {

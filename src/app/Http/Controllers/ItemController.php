@@ -98,8 +98,8 @@ class ItemController extends Controller
 
     public function updateAddress(AddressRequest $request, Item $item)
     {
-        $profile = Auth::user()->profile;
+        $user = Auth::user();
         $destinationAddress = $request->only('postal_code', 'address', 'building');
-        return view('purchase', compact('item', 'profile', 'destinationAddress'));
+        return view('purchase', compact('item', 'user', 'destinationAddress'));
     }
 }
