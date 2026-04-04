@@ -8,10 +8,6 @@
     text-align: center;
 }
 
-.page-form {
-    
-}
-
 .page-form__label {
     display: block;
     margin-top: 70px;
@@ -26,10 +22,6 @@
     font-size: 18px;
     border: 1px solid #5f5f5f;
     border-radius: 3px;
-}
-
-.page-form__button {
-
 }
 
 .page-form__button-submit {

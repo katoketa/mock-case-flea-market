@@ -54,7 +54,7 @@
         @endif
         <div class="item-description">
             <h3 class="item-description__title">商品説明</h3>
-            <div class="item-description__content">{{ $item['description'] }}</div>
+            <p class="item-description__content">{{ $item['description'] }}</p>
         </div>
         <h3 class="item-data__header">商品の情報</h3>
         <table class="item-data__table">

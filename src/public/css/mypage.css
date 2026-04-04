@@ -38,10 +38,6 @@
     font-weight: bold;
 }
 
-.mypage-header__profile-edit {
-    
-}
-
 .mypage-header__edit-button {
     padding: 10px 20px;
     color: #ff5555;
@@ -49,10 +45,6 @@
     text-decoration: none;
     border: 1px solid #ff5555;
     border-radius: 5px;
-}
-
-.mypage-items {
-
 }
 
 .mypage-items__header {

@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Item;
 use App\Models\User;
@@ -11,7 +10,7 @@ use App\Models\User;
 class ExhibitionTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     protected $seed = true;
     /**
      * A basic feature test example.
@@ -28,8 +27,6 @@ class ExhibitionTest extends TestCase
 
         // 購入済み商品は「Sold」と表示される
         $response->assertSee('Sold');
-
-
     }
 
     public function testExhibitionAfterLogin(): void

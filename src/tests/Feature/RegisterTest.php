@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class RegisterTest extends TestCase
@@ -31,7 +29,7 @@ class RegisterTest extends TestCase
         $response->assertRedirect('/register');
         $response->assertSessionHasErrors(['name' => 'お名前を入力してください']);
     }
-    
+
     public function testRegisterValidateEmailValidate(): void
     {
         // メールアドレスが入力されていない場合、バリデーションメッセージが表示される

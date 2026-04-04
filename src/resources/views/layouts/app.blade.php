@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/navigation.css') }}">
     @yield('css')
-    <title>Document</title>
+    <title>coachtechフリマ</title>
 </head>
 
 <body>

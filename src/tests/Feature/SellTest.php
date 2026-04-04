@@ -14,7 +14,7 @@ class SellTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
-    
+
     protected $seed = true;
     /**
      * A basic feature test example.

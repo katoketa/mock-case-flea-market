@@ -11,7 +11,7 @@
 @section('content')
 <div class="edit-profile">
     <h2 class="edit-profile__header">プロフィール設定</h2>
-    <form action="/mypage/profile" method="post" class="edit-form" enctype="multipart/form-data" novalidate>
+    <form action="/mypage/profile" method="post" enctype="multipart/form-data" novalidate>
         @csrf
         @if(!empty($user['profile']))
         <input type="hidden" name="id" value="{{ $user['profile']['id'] }}">

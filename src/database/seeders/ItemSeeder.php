@@ -14,7 +14,6 @@ class ItemSeeder extends Seeder
     {
         $params = [
             [
-                // 1
                 'seller_id' => 1,
                 'condition_id' => 1,
                 'name' => '腕時計',
@@ -24,7 +23,6 @@ class ItemSeeder extends Seeder
                 'image' => 'images/腕時計.jpg',
             ],
             [
-                // 2
                 'seller_id' => 2,
                 'condition_id' => 2,
                 'name' => 'HDD',
@@ -34,7 +32,6 @@ class ItemSeeder extends Seeder
                 'image' => 'images/HDD.jpg',
             ],
             [
-                // 3
                 'seller_id' => 3,
                 'condition_id' => 3,
                 'name' => '玉ねぎ3束',
@@ -44,7 +41,6 @@ class ItemSeeder extends Seeder
                 'image' => 'images/玉ねぎ3束.jpg',
             ],
             [
-                // 4
                 'seller_id' => 4,
                 'condition_id' => 4,
                 'name' => '革靴',
@@ -54,7 +50,6 @@ class ItemSeeder extends Seeder
                 'image' => 'images/革靴.jpg',
             ],
             [
-                // 5
                 'seller_id' => 5,
                 'condition_id' => 1,
                 'name' => 'ノートPC',
@@ -64,7 +59,6 @@ class ItemSeeder extends Seeder
                 'image' => 'images/ノートPC.jpg',
             ],
             [
-                // 6
                 'seller_id' => 6,
                 'condition_id' => 2,
                 'name' => 'マイク',
@@ -74,7 +68,6 @@ class ItemSeeder extends Seeder
                 'image' => 'images/マイク.jpg',
             ],
             [
-                // 7
                 'seller_id' => 7,
                 'condition_id' => 3,
                 'name' => 'ショルダーバッグ',
@@ -84,7 +77,6 @@ class ItemSeeder extends Seeder
                 'image' => 'images/ショルダーバッグ.jpg',
             ],
             [
-                // 8
                 'seller_id' => 8,
                 'condition_id' => 4,
                 'name' => 'タンブラー',
@@ -94,7 +86,6 @@ class ItemSeeder extends Seeder
                 'image' => 'images/タンブラー.jpg',
             ],
             [
-                // 9
                 'seller_id' => 9,
                 'condition_id' => 1,
                 'name' => 'コーヒーミル',
@@ -104,7 +95,6 @@ class ItemSeeder extends Seeder
                 'image' => 'images/コーヒーミル.jpg',
             ],
             [
-                // 10
                 'seller_id' => 10,
                 'condition_id' => 2,
                 'name' => 'メイクセット',

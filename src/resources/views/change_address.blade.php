@@ -11,7 +11,7 @@
 @section('content')
 <div class="change-address-page">
     <h2 class="page-header">住所の変更</h2>
-    <form action="/purchase/{{ $item['id'] }}" method="post" class="page-form">
+    <form action="/purchase/{{ $item['id'] }}" method="post">
         @csrf
         <label for="postal-code" class="page-form__label">郵便番号</label>
         <input type="text" name="postal_code" id="postal-code" class="page-form__input" value="{{ old('postal_code') }}">
@@ -25,9 +25,7 @@
         @enderror
         <label for="building" class="page-form__label">建物名</label>
         <input type="text" name="building" id="building" class="page-form__input" value="{{ old('building') }}">
-        <div class="page-form__button">
-            <button class="page-form__button-submit">更新する</button>
-        </div>
+        <button class="page-form__button-submit">更新する</button>
     </form>
 </div>
 @endsection
