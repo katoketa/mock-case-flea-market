@@ -52,7 +52,7 @@ class ItemController extends Controller
         $item->favorites()->attach($user['id']);
         return redirect('item/' . $item['id']);
     }
-    
+
     public function destroyFavorite(Item $item)
     {
         $user = Auth::user();
@@ -62,7 +62,7 @@ class ItemController extends Controller
         $item->favorites()->detach($user['id']);
         return redirect('item/' . $item['id']);
     }
-    
+
     public function sell()
     {
         $categories = Category::all();
@@ -84,7 +84,7 @@ class ItemController extends Controller
 
         return redirect('/');
     }
-    
+
     public function purchase(Item $item)
     {
         $user = Auth::user();

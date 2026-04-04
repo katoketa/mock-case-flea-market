@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Item;
@@ -11,7 +10,7 @@ use App\Models\Item;
 class FavoriteTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     protected $seed = true;
     const SELECT_ITEM_ID = 3;
     const TEST_USER_ID = 1;
