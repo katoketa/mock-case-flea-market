@@ -1,4 +1,4 @@
-body {
+body, input, textarea, select {
     font-family: "Inter", sans-serif;
 }
 

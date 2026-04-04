@@ -32,8 +32,8 @@
                     <div class="payment-method__select-wrapper">
                         <select name="payment_method" id="select-toggle" class="payment-method__select">
                             <option value="" selected hidden>選択してください</option>
-                            <option value="payment_convenience" class="payment-method__option">コンビニ支払い</option>
-                            <option value="payment_card" class="payment-method__option">カード支払い</option>
+                            <option value="payment_convenience">コンビニ支払い</option>
+                            <option value="payment_card">カード支払い</option>
                         </select>
                         @error('payment_method')
                         <div class="error-message">{{ $message }}</div>

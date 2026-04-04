@@ -89,10 +89,6 @@
     appearance: none;
 }
 
-.payment-method__option {
-
-}
-
 .delivery-address__change {
     color: #197cd0;
     text-decoration: none;
@@ -117,10 +113,6 @@
 
 .delivery-address__postal-code {
     padding-left: 8px;
-}
-
-.purchase-form__right {
-
 }
 
 .payment-info {

@@ -108,7 +108,7 @@
 }
 
 .item-description__content {
-
+    margin: 0;
 }
 
 .item-data__header {
@@ -189,11 +189,12 @@
 }
 
 .comment-form {
-
+    margin-top: 50px;
 }
 
 .comment-form__header {
     margin: 0;
+    font-size: 20px;
 }
 
 .comment-form__textarea {

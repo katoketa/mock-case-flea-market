@@ -9,14 +9,6 @@
     text-align: center;
 }
 
-.sell-form {
-
-}
-
-.sell-form__image-upload {
-
-}
-
 .image-upload__header {
     margin: 0;
     font-weight: bold;
@@ -51,10 +43,6 @@
 
 .image-upload__input {
     display: none;
-}
-
-.sell-form__detail {
-
 }
 
 .sell-form__content-header {
@@ -143,14 +131,6 @@
     border-radius: 3px;
     background: white;
     appearance: none;
-}
-
-.detail-condition__option {
-
-}
-
-.sell-form__item {
-
 }
 
 .item__header {
