@@ -156,7 +156,7 @@
     cursor: pointer;
 }
 
-.purchase-form__button-submit--my-item {
+.purchase-form__button-submit--gray-out {
     text-align: center;
     background: #d9d9d9;
     cursor: auto;
