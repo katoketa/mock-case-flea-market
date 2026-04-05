@@ -9,6 +9,7 @@
 - `composer install`
 - `cp .env.example .env` , 環境変数を適宜変更
 - `php artisan key:generate`
+- `php artisan storage:link`
 - `php artisan migrate --seed`
 ## 開発環境
 - 商品一覧画面：http://localhost/
