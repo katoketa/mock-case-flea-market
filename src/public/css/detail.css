@@ -109,6 +109,7 @@
 
 .item-description__content {
     margin: 0;
+    white-space: pre-wrap;
 }
 
 .item-data__header {
