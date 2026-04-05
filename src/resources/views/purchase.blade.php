@@ -86,8 +86,10 @@
                     </td>
                 </tr>
             </table>
-            @if ($user['id'] === $item['seller_id'])
-            <div class="purchase-form__button-submit purchase-form__button-submit--my-item">購入する</div>
+            @if (!empty($item['purchase_history']))
+            <div class="purchase-form__button-submit purchase-form__button-submit--gray-out">売り切れ</div>
+            @elseif ($user['id'] === $item['seller_id'])
+            <div class="purchase-form__button-submit purchase-form__button-submit--gray-out">購入する</div>
             @else
             <button type="submit" class="purchase-form__button-submit">購入する</button>
             @endif
